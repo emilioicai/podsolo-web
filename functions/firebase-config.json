@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "result": {
+    "apiKey": "AIzaSyCV1k24ryCM2khbCJ1IfQeCLMInGPhYu3c",
+    "databaseURL": "https://podcasts-web-staging.firebaseio.com",
+    "storageBucket": "podcasts-web-staging.appspot.com",
+    "authDomain": "podcasts-web-staging.firebaseapp.com",
+    "messagingSenderId": "37465277961",
+    "projectId": "podcasts-web-staging"
+  }
+}
