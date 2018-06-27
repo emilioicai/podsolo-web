@@ -4,7 +4,6 @@ import _ from 'lodash';
 
 export default class Home extends React.Component {
   componentDidMount() {
-    // if no data is present, load the employees data
     if (_.isEmpty(this.props.topPodcasts)) {
       this.props.getTopPodcasts();
     }
@@ -12,7 +11,7 @@ export default class Home extends React.Component {
 
   render() {
     if (_.isEmpty(this.props.topPodcasts)) {
-      return <div className="container loader">Loading...</div>;
+      return <div className="container loader">Loading top podcasts...</div>;
     }
     return (
       <div className='container home'>

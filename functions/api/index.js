@@ -12,7 +12,6 @@ const getEpisodes = (podcastId) => {
       return response.json();
     })
     .then((episodes) => {
-      console.log(episodes);
       return episodes;
     })
     .catch((err) => {
@@ -29,7 +28,6 @@ const getTopPodcasts = () => {
       return response.json();
     })
     .then((topPodcasts) => {
-      console.log(topPodcasts);
       return topPodcasts;
     })
     .catch((err) => {

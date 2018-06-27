@@ -28255,7 +28255,7 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             getEpisodes: this.getEpisodes
           })) }),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router__["b" /* Route */], { path: '/', render: props => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__components_Home__["a" /* default */], _extends({}, props, {
-            employees: this.state.topPodcasts,
+            topPodcasts: this.state.topPodcasts,
             getTopPodcasts: this.getTopPodcasts
           })) })
       )
@@ -29961,7 +29961,6 @@ const getEpisodes = podcastId => {
     }
     return response.json();
   }).then(episodes => {
-    console.log(episodes);
     return episodes;
   }).catch(err => {
     console.error('Error retrieving episodes: ', err);
@@ -29975,7 +29974,6 @@ const getTopPodcasts = () => {
     }
     return response.json();
   }).then(topPodcasts => {
-    console.log(topPodcasts);
     return topPodcasts;
   }).catch(err => {
     console.error('Error retrieving podcasts: ', err);
@@ -30046,18 +30044,18 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   componentDidMount() {
-    // if no data is present, load the employees data
     if (__WEBPACK_IMPORTED_MODULE_2_lodash___default.a.isEmpty(this.props.topPodcasts)) {
       this.props.getTopPodcasts();
     }
   }
 
   render() {
+    console.log('---->', this.props);
     if (__WEBPACK_IMPORTED_MODULE_2_lodash___default.a.isEmpty(this.props.topPodcasts)) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'container loader' },
-        'Loading...'
+        'Loading top podcasts...'
       );
     }
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(

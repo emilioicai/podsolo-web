@@ -68,7 +68,7 @@ export default class App extends React.Component {
           )} />
           <Route path='/' render={(props) => (
             <Home {...props}
-              employees={this.state.topPodcasts}
+              topPodcasts={this.state.topPodcasts}
               getTopPodcasts={this.getTopPodcasts}
             />
           )} />
