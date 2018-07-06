@@ -5,7 +5,8 @@
     "createfirebaseconf": "firebase setup:web --json > ../functions/firebase-config.json",
     "buildClient": "./node_modules/.bin/webpack --config ./webpack.client.config.js",
     "buildServer": "./node_modules/.bin/webpack --config ./webpack.server.config.js",
-    "build": "npm run createfirebaseconf && npm run buildClient && npm run buildServer"
+    "build": "npm run createfirebaseconf && npm run buildClient && npm run buildServer",
+    "buildDevServer": "./node_modules/.bin/webpack --config ./webpack.dev.config.js"
   },
   "dependencies": {
     "firebase": "4.8.0",

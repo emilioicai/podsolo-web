@@ -30050,7 +30050,6 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   }
 
   render() {
-    console.log('---->', this.props);
     if (__WEBPACK_IMPORTED_MODULE_2_lodash___default.a.isEmpty(this.props.topPodcasts)) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
