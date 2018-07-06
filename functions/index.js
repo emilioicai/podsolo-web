@@ -20,10 +20,6 @@ app.get('/favicon.ico', (req, res) => {
   return res.send(204);
 });
 
-app.get('/hello', (req, res) => {
-  return res.send('Hello world!');
-});
-
 app.get('/:podcastId?', (req, res) => {
   res.set('Cache-Control', 'public, max-age=60, s-maxage=180');
   if (req.params.podcastId) {
