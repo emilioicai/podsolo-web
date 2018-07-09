@@ -20946,11 +20946,11 @@ class App extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     // check to see if we have existing server-rendered data
     // sets the state if we do, otherwise initialize it to an empty state
 
-    this.getEpisodes = employeeId => {
+    this.getEpisodes = (podcastId, limit) => {
       this.setState({
         episodes: []
       });
-      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_api__["getEpisodes"])(employeeId).then(episodes => {
+      __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_5_api__["getEpisodes"])(podcastId, limit).then(episodes => {
         this.setState({
           episodes
         });
@@ -25589,8 +25589,9 @@ __webpack_require__(66);
 
 const API_URL = 'us-central1-podcasts-205113.cloudfunctions.net';
 
-const getEpisodes = podcastId => {
-  return fetch(`//${API_URL}/episodes?podcastId=${podcastId}`).then(response => {
+const getEpisodes = (podcastId, limit = 999) => {
+  console.log('----------> ', limit);
+  return fetch(`//${API_URL}/episodes?podcastId=${podcastId}&limit=${limit}`).then(response => {
     if (response.status >= 400) {
       throw new Error("Bad response from server");
     }
@@ -25637,14 +25638,14 @@ module.exports = {
 class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   componentDidMount() {
     // TODO: Don't retrieve episodes if the list is the list is already present (it has been isomorphically fetched)
-    this.props.getEpisodes(this.props.match.params.id);
+    this.props.getEpisodes(this.props.match.params.id, 10);
   }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       // user has navigated to a new episodes page
       // load data for that podcast and set to state
-      this.props.getEpisodes(nextProps.match.params.id);
+      this.props.getEpisodes(nextProps.match.params.id, 10);
     }
   }
 
@@ -25661,7 +25662,6 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       'ul',
       { className: 'cards' },
       episodes.map((e, i) => {
-        console.log('----------> ', 'aa');
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'li',
           { className: 'card card-inline', key: i },

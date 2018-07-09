@@ -20,11 +20,8 @@ export default class App extends React.Component {
     }
   }
 
-  getEpisodes = (employeeId) => {
-    this.setState({
-      episodes: []
-    });
-    getEpisodes(employeeId)
+  getEpisodes = (podcastId, limit) => {
+    getEpisodes(podcastId, limit)
       .then((episodes) => {
         this.setState({
           episodes
