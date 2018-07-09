@@ -3,8 +3,8 @@ require('isomorphic-fetch');
 
 const API_URL = 'us-central1-podcasts-205113.cloudfunctions.net';
 
-const getEpisodes = (podcastId) => {
-  return fetch(`//${API_URL}/episodes?podcastId=${podcastId}`)
+const getEpisodes = (podcastId, limit = 999) => {
+  return fetch(`//${API_URL}/episodes?podcastId=${podcastId}&limit=${limit}`)
     .then((response) => {
       if (response.status >= 400) {
         throw new Error("Bad response from server");

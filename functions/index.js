@@ -25,7 +25,7 @@ app.get('/:podcastId?', (req, res) => {
   if (req.params.podcastId) {
     // client is requesting podcast specific page with podcastId
     // load the data for that podcast
-    return getEpisodes(req.params.userId).then((resp) => {
+    return getEpisodes(req.params.podcastId).then((resp) => {
       return renderApplication(req.url, res, { episodes: resp });
     });
   } else {
