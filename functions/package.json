@@ -1,6 +1,6 @@
 {
-  "name": "functions-isomorphic-react-app",
-  "description": "A sample isomorphic React app using Functions and Hosting",
+  "name": "podcasts web",
+  "description": "Isomorphic React web for podcasts",
   "dependencies": {
     "express": "4.15.2",
     "firebase": "4.8.0",

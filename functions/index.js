@@ -2,7 +2,7 @@ const functions = require('firebase-functions');
 const app = require('express')();
 const React = require('react');
 const ReactDOMServer = require('react-dom/server');
-const { getPodcast, getTopPodcasts } = require('./api');
+const { getEpisodes, getTopPodcasts } = require('./api');
 
 // React App
 const ServerApp = React.createFactory(require('./build/server.bundle.js').default);
@@ -25,7 +25,7 @@ app.get('/:podcastId?', (req, res) => {
   if (req.params.podcastId) {
     // client is requesting podcast specific page with podcastId
     // load the data for that podcast
-    return getPodcast(req.params.userId).then((resp) => {
+    return getEpisodes(req.params.userId).then((resp) => {
       return renderApplication(req.url, res, { episodes: resp });
     });
   } else {

@@ -22,9 +22,17 @@ export default class User extends React.Component {
     }
     const { episodes } = this.props;
     return (
-      <div className='user-details'>
-
-      </div>
+      <ul className="cards">
+        {episodes.map((e, i) => {
+          console.log('----------> ', 'aa')
+          return (<li className="card card-inline" key={i}>
+            <div className="card-block">
+              <h4 className="card-title">{e.title}</h4>
+              <div dangerouslySetInnerHTML={{ __html: e.description }} />
+            </div>
+          </li>)
+        })}
+      </ul>
     )
   }
 }

@@ -25590,7 +25590,7 @@ __webpack_require__(66);
 const API_URL = 'us-central1-podcasts-205113.cloudfunctions.net';
 
 const getEpisodes = podcastId => {
-  return fetch(`//${API_URL}/episodes`).then(response => {
+  return fetch(`//${API_URL}/episodes?podcastId=${podcastId}`).then(response => {
     if (response.status >= 400) {
       throw new Error("Bad response from server");
     }
@@ -25657,7 +25657,27 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       );
     }
     const { episodes } = this.props;
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'user-details' });
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'ul',
+      { className: 'cards' },
+      episodes.map((e, i) => {
+        console.log('----------> ', 'aa');
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'li',
+          { className: 'card card-inline', key: i },
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            { className: 'card-block' },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              'h4',
+              { className: 'card-title' },
+              e.title
+            ),
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { dangerouslySetInnerHTML: { __html: e.description } })
+          )
+        );
+      })
+    );
   }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = User;
@@ -25685,7 +25705,6 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   }
 
   render() {
-    console.log('---->', this.props);
     if (__WEBPACK_IMPORTED_MODULE_2_lodash___default.a.isEmpty(this.props.topPodcasts)) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
