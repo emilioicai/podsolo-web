@@ -17,7 +17,7 @@ export default class User extends React.Component {
   }
 
   loadMore = () => {
-    this.props.getEpisodes(this.props.match.params.id, this.props.episodes.length + 10);
+    this.props.getEpisodes(this.props.match.params.id, this.props.episodes.length + 10, false);
   }
 
   render() {

@@ -20,7 +20,12 @@ export default class App extends React.Component {
     }
   }
 
-  getEpisodes = (podcastId, limit) => {
+  getEpisodes = (podcastId, limit, clearEpisodes = true) => {
+    if (clearEpisodes) {
+      this.setState({
+        episodes: []
+      });
+    }
     getEpisodes(podcastId, limit)
       .then((episodes) => {
         this.setState({
