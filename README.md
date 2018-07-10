@@ -4,7 +4,7 @@
 The web relies in both functions and hosting so npm needs to be run on both parts
 
 ```
-./functions/npm install && ./src/npm install
+cd ./functions && npm install && cd ../src/ && npm install
 ```
 
 Once both projects are npm installed run them on firebase:
