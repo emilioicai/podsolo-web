@@ -1,5 +1,5 @@
 {
-  "name": "podcasts web",
+  "name": "podcasts-web",
   "description": "Isomorphic React web for podcasts",
   "dependencies": {
     "express": "4.15.2",
