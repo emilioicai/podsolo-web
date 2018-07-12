@@ -18,10 +18,11 @@
 
 body {
   font-family: Lato,'Helvetica Neue',Helvetica,Arial,sans-serif;
+ 
 }
 
 .navbar-custom {
-  background: #2C3E50;
+  background: #30343F;
   text-transform: uppercase;
   font-weight: 700;
   border: none;

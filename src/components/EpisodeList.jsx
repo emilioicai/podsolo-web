@@ -1,8 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import Loading from './Loading';
 
 export default class User extends React.Component {
+  state = {
+    loadingMore: false
+  }
+
   componentDidMount = () => {
     // TODO: Don't retrieve episodes if the list is the list is already present (it has been isomorphically fetched)
     this.props.getEpisodes(this.props.match.params.id, 10);
@@ -17,12 +21,24 @@ export default class User extends React.Component {
   }
 
   loadMore = () => {
-    this.props.getEpisodes(this.props.match.params.id, this.props.episodes.length + 10, false);
+    this.props.getEpisodes(
+      this.props.match.params.id,
+      this.props.episodes.length + 10,
+      false,
+      () => {
+        this.setState({
+          loadingMore: false
+        })
+      }
+    );
+    this.setState({
+      loadingMore: true
+    })
   }
 
   render() {
     if (_.isEmpty(this.props.episodes)) {
-      return <div className="container loader">Loading...</div>;
+      return <Loading />;
     }
     const { episodes } = this.props;
     return (
@@ -38,7 +54,8 @@ export default class User extends React.Component {
           })}
         </ul>
         <div id="load-more">
-          <a onClick={this.loadMore} href='#load-more'>Load more...</a>
+          {!this.state.loadingMore && <a onClick={this.loadMore} href='#load-more'>Load more...</a>}
+          {this.state.loadingMore && <Loading />}
         </div>
       </div >
     )

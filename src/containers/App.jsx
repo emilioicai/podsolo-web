@@ -20,7 +20,7 @@ export default class App extends React.Component {
     }
   }
 
-  getEpisodes = (podcastId, limit, clearEpisodes = true) => {
+  getEpisodes = (podcastId, limit, clearEpisodes = true, cb) => {
     if (clearEpisodes) {
       this.setState({
         episodes: []
@@ -31,9 +31,11 @@ export default class App extends React.Component {
         this.setState({
           episodes
         });
+        if (cb) cb(null, episodes);
         return null;
       })
       .catch((err) => {
+        cb(err, null);
         console.error('Error when getting episodes:', err)
       });
   };
