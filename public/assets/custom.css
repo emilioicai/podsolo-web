@@ -133,3 +133,7 @@ img.report-img {
   font-size: 11px;
   margin-top: 30px;
 }
+li{
+  list-style-type: none;
+
+}

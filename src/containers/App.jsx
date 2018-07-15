@@ -1,9 +1,10 @@
-import React from 'react';
-import { Switch, Route } from 'react-router';
-import { Link } from 'react-router-dom';
-import Home from '../components/Home';
-import EpisodeList from '../components/EpisodeList';
-import { getEpisodes, getTopPodcasts } from 'api';
+import React from "react";
+import { Switch, Route } from "react-router";
+import { Link } from "react-router-dom";
+import Home from "../components/Home";
+import EpisodeList from "../components/EpisodeList";
+import { getEpisodes, getTopPodcasts } from "api";
+import "bootstrap/dist/css/bootstrap.css";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -16,7 +17,7 @@ export default class App extends React.Component {
       this.state = {
         topPodcasts: [],
         episodes: []
-      }
+      };
     }
   }
 
@@ -27,29 +28,29 @@ export default class App extends React.Component {
       });
     }
     getEpisodes(podcastId, limit)
-      .then((episodes) => {
+      .then(episodes => {
         this.setState({
           episodes
         });
-        if (cb) cb(null, episodes);
+        if (cb) return cb(null, episodes);
         return null;
       })
-      .catch((err) => {
-        cb(err, null);
-        console.error('Error when getting episodes:', err)
+      .catch(err => {
+        console.error("Error when getting episodes:", err);
+        return cb(err, null);
       });
   };
 
   getTopPodcasts = () => {
     getTopPodcasts()
-      .then((topPodcasts) => {
+      .then(topPodcasts => {
         this.setState({
           topPodcasts
         });
         return null;
       })
-      .catch((err) => {
-        console.error('Error when getting top podcasts:', err)
+      .catch(err => {
+        console.error("Error when getting top podcasts:", err);
       });
   };
 
@@ -59,25 +60,35 @@ export default class App extends React.Component {
         <nav id="mainNav" className="navbar navbar-custom">
           <div className="container">
             <div className="navbar-header">
-              <Link to='/' className="navbar-brand">Top podcasts</Link>
+              <Link to="/" className="navbar-brand">
+                Top podcasts
+              </Link>
             </div>
           </div>
         </nav>
         <Switch>
-          <Route path='/:id' render={(props) => (
-            <EpisodeList {...props}
-              episodes={this.state.episodes}
-              getEpisodes={this.getEpisodes}
-            />
-          )} />
-          <Route path='/' render={(props) => (
-            <Home {...props}
-              topPodcasts={this.state.topPodcasts}
-              getTopPodcasts={this.getTopPodcasts}
-            />
-          )} />
+          <Route
+            path="/:id"
+            render={props => (
+              <EpisodeList
+                {...props}
+                episodes={this.state.episodes}
+                getEpisodes={this.getEpisodes}
+              />
+            )}
+          />
+          <Route
+            path="/"
+            render={props => (
+              <Home
+                {...props}
+                topPodcasts={this.state.topPodcasts}
+                getTopPodcasts={this.getTopPodcasts}
+              />
+            )}
+          />
         </Switch>
       </div>
-    )
+    );
   }
 }
