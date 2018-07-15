@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Home from "../components/Home";
 import EpisodeList from "../components/EpisodeList";
 import { getEpisodes, getTopPodcasts } from "api";
-import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class App extends React.Component {
   constructor(props) {
