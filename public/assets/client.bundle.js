@@ -30475,7 +30475,7 @@ module.exports = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(69);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Loading__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Loading_index_jsx__ = __webpack_require__(256);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__(249);
 
 
@@ -30511,7 +30511,7 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
   render() {
     if (__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes)) {
-      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading__["a" /* default */], null);
+      return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_index_jsx__["a" /* default */], null);
     }
     const { episodes } = this.props;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -30565,7 +30565,7 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
           { onClick: this.loadMore, href: "#load-more" },
           "Load more..."
         ),
-        this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading__["a" /* default */], null)
+        this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_index_jsx__["a" /* default */], null)
       )
     );
   }
@@ -30597,34 +30597,37 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   render() {
     if (__WEBPACK_IMPORTED_MODULE_2_lodash___default.a.isEmpty(this.props.topPodcasts)) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'div',
-        { className: 'container loader' },
-        'Loading top podcasts...'
+        "div",
+        { className: "container loader" },
+        "Loading top podcasts..."
       );
     }
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'container home' },
+      "div",
+      { className: "container home" },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        'ul',
-        { className: 'cards' },
+        "ul",
+        { className: "cards" },
         this.props.topPodcasts.map(podcast => {
           return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            'li',
-            { className: 'card card-inline', key: podcast.id },
-            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'card-img-top card-image', src: podcast.artworkUrl100 }),
+            "li",
+            { className: "card card-inline", key: podcast.id },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+              className: "card-img-top card-image",
+              src: podcast.artworkUrl100
+            }),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'div',
-              { className: 'card-block' },
+              "div",
+              { className: "card-block" },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                'h4',
-                { className: 'card-title' },
+                "h4",
+                { className: "card-title" },
                 podcast.name
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
-                { to: `/${podcast.id}`, className: 'btn' },
-                'Details'
+                { to: `/${podcast.id}`, className: "btn" },
+                "Details"
               )
             )
           );
@@ -30637,35 +30640,7 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 
 
 /***/ }),
-/* 107 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__loading_css__ = __webpack_require__(251);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__loading_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__loading_css__);
-
-
-
-class Loading extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
-
-  render() {
-
-    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      'div',
-      { className: 'sk-folding-cube' },
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'sk-cube1 sk-cube' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'sk-cube2 sk-cube' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'sk-cube4 sk-cube' }),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'sk-cube3 sk-cube' })
-    );
-  }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = Loading;
-
-
-/***/ }),
+/* 107 */,
 /* 108 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -30686,7 +30661,7 @@ __WEBPACK_IMPORTED_MODULE_1_react_dom___default.a.render(__WEBPACK_IMPORTED_MODU
   __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["a" /* BrowserRouter */],
   null,
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__App__["a" /* default */], { state: window.__initialState })
-), document.getElementById('root'));
+), document.getElementById("root"));
 
 /***/ }),
 /* 109 */
@@ -55643,6 +55618,33 @@ module.exports = function(module) {
 	}
 	return module;
 };
+
+
+/***/ }),
+/* 256 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__loading_css__ = __webpack_require__(251);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__loading_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__loading_css__);
+
+
+
+class Loading extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      "div",
+      { className: "sk-folding-cube" },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "sk-cube1 sk-cube" }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "sk-cube2 sk-cube" }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "sk-cube4 sk-cube" }),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "sk-cube3 sk-cube" })
+    );
+  }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = Loading;
 
 
 /***/ })
