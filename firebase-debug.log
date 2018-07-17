@@ -1,162 +1,68 @@
-[debug] [2018-07-15T13:23:07.803Z] ----------------------------------------------------------------------
-[debug] [2018-07-15T13:23:07.806Z] Command:       /Users/eugenia/.nvm/versions/node/v6.11.5/bin/node /Users/eugenia/.nvm/versions/node/v6.11.5/bin/firebase serve --only functions,hosting
-[debug] [2018-07-15T13:23:07.807Z] CLI Version:   3.19.3
-[debug] [2018-07-15T13:23:07.807Z] Platform:      darwin
-[debug] [2018-07-15T13:23:07.807Z] Node Version:  v6.11.5
-[debug] [2018-07-15T13:23:07.809Z] Time:          Sun Jul 15 2018 15:23:07 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:07.809Z] ----------------------------------------------------------------------
+[debug] [2018-07-17T19:49:20.797Z] ----------------------------------------------------------------------
+[debug] [2018-07-17T19:49:20.801Z] Command:       /Users/eugenia/.nvm/versions/node/v6.11.5/bin/node /Users/eugenia/.nvm/versions/node/v6.11.5/bin/firebase serve --only functions,hosting
+[debug] [2018-07-17T19:49:20.801Z] CLI Version:   3.19.3
+[debug] [2018-07-17T19:49:20.802Z] Platform:      darwin
+[debug] [2018-07-17T19:49:20.802Z] Node Version:  v6.11.5
+[debug] [2018-07-17T19:49:20.802Z] Time:          Tue Jul 17 2018 21:49:20 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:20.802Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-07-15T13:23:07.829Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-07-15T13:23:07.830Z] > authorizing via signed-in user
-[debug] [2018-07-15T13:23:07.833Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-07-15T13:23:07.833Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+[debug] [2018-07-17T19:49:20.822Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-07-17T19:49:20.823Z] > authorizing via signed-in user
+[debug] [2018-07-17T19:49:20.826Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-07-17T19:49:20.826Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
  { refresh_token: '1/XFP3ig1WeiXaiq07eLRDow81adiPhOo4YEumhn_857c',
   client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
   client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
   grant_type: 'refresh_token',
   scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Sun Jul 15 2018 15:23:07 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:08.048Z] <<< HTTP RESPONSE 200
-[debug] [2018-07-15T13:23:08.074Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/podcasts-web-staging  
+ Tue Jul 17 2018 21:49:20 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:21.259Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T19:49:21.286Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/podcasts-web-staging  
   
- Sun Jul 15 2018 15:23:08 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:08.827Z] <<< HTTP RESPONSE 200
-[debug] [2018-07-15T13:23:08.829Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/podcasts-web-staging/tokens  
+ Tue Jul 17 2018 21:49:21 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:21.952Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T19:49:21.953Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/podcasts-web-staging/tokens  
   
- Sun Jul 15 2018 15:23:08 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:09.687Z] <<< HTTP RESPONSE 200
-[debug] [2018-07-15T13:23:09.689Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/podcasts-web-staging  
+ Tue Jul 17 2018 21:49:21 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:23.064Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T19:49:23.066Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/podcasts-web-staging  
   
- Sun Jul 15 2018 15:23:09 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:10.743Z] <<< HTTP RESPONSE 200
+ Tue Jul 17 2018 21:49:23 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:23.986Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from '/Users/eugenia/code/eumar-8/podcasts-web'...
 [info] 
 [info] i  functions: Preparing to emulate functions.
-[debug] [2018-07-15T13:23:12.218Z] Fetching environment
-[debug] [2018-07-15T13:23:12.221Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/37465277961:getServerAppConfig  
+[debug] [2018-07-17T19:49:25.353Z] Fetching environment
+[debug] [2018-07-17T19:49:25.356Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/37465277961:getServerAppConfig  
   
- Sun Jul 15 2018 15:23:12 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:12.222Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/37465277961/clients/_:getWebAppConfig  
+ Tue Jul 17 2018 21:49:25 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:25.357Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/37465277961/clients/_:getWebAppConfig  
   
- Sun Jul 15 2018 15:23:12 GMT+0200 (CEST)
-[debug] [2018-07-15T13:23:12.896Z] <<< HTTP RESPONSE 200
-[debug] [2018-07-15T13:23:12.935Z] <<< HTTP RESPONSE 200
-[debug] [2018-07-15T13:23:12.935Z] Starting @google-cloud/functions-emulator
+ Tue Jul 17 2018 21:49:25 GMT+0200 (CEST)
+[debug] [2018-07-17T19:49:26.137Z] <<< HTTP RESPONSE 200
+[debug] [2018-07-17T19:49:26.138Z] Starting @google-cloud/functions-emulator
+[debug] [2018-07-17T19:49:26.188Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] ✔  hosting: Local server: http://localhost:5000
 
-[debug] [2018-07-15T13:23:15.561Z] Parsing function triggers
+[debug] [2018-07-17T19:49:28.793Z] Parsing function triggers
 [info] ✔  functions: app: http://localhost:5001/podcasts-web-staging/us-central1/app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /assets/reactstrap.es.js.map to local function app
 [info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/reactstrap.es.js.map to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/reactstrap.es.js.map to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/reactstrap.es.js.map to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
 [info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/reactstrap.es.js.map to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
 [info] [hosting] Rewriting / to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
 [info] [hosting] Rewriting / to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app
 [info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting / to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
-[info] [hosting] Rewriting /favicon.ico to local function app
-[info] [hosting] Rewriting /1068563276 to local function app
-[info] [hosting] Rewriting /assets/es6-promise.map to local function app
 [info] [hosting] Rewriting /favicon.ico to local function app

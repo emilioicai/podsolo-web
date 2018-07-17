@@ -1,6 +1,6 @@
 import React from "react";
 import _ from "lodash";
-import Loading from "../components/Loading";
+import Loading from "../Loading";
 import {
   Card,
   Button,
@@ -16,23 +16,25 @@ export default class User extends React.Component {
     loadingMore: false
   };
 
+  limit = 12;
+
   componentDidMount = () => {
     // TODO: Don't retrieve episodes if the list is the list is already present (it has been isomorphically fetched)
-    this.props.getEpisodes(this.props.match.params.id, 10);
+    this.props.getEpisodes(this.props.match.params.id, this.limit);
   };
 
   componentWillReceiveProps = nextProps => {
     if (nextProps.match.params.id !== this.props.match.params.id) {
       // user has navigated to a new episodes page
       // load data for that podcast and set to state
-      this.props.getEpisodes(nextProps.match.params.id, 10);
+      this.props.getEpisodes(nextProps.match.params.id, this.limit);
     }
   };
 
   loadMore = () => {
     this.props.getEpisodes(
       this.props.match.params.id,
-      this.props.episodes.length + 10,
+      this.props.episodes.length + this.limit,
       false,
       () => {
         this.setState({

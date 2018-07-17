@@ -1,13 +1,9 @@
-import React from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import {
-  Switch,
-  Route
-} from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router";
-import { Link } from "../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
-import Home from "../components/Home";
-import EpisodeList from "../components/EpisodeList";
+import React from "react";
+import { Switch, Route } from "react-router";
+import { Link } from "react-router-dom";
+import Home from "../components/Home/index.jsx";
+import EpisodeList from "../components/EpisodeList/index.jsx";
 import { getEpisodes, getTopPodcasts } from "api";
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export default class App extends React.Component {
   constructor(props) {

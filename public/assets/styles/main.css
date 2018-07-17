@@ -1,23 +1,11 @@
-/**
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-
-/* Custom CSS */
+@import "home.css";
+@import "home.css";
+@import "episodeList.css";
+@import "loading.css";
 
 body {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  background-color: #022f40;
 }
 
 .navbar-custom {
@@ -25,7 +13,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   border: none;
-  padding: 20px 0;
+  padding: 20px;
 }
 
 .navbar-custom .navbar-brand {
@@ -37,22 +25,21 @@ body {
   color: gray;
 }
 
-ul.cards {
+/* ul.cards {
   margin-top: 20px;
-}
+} 
 
-li.card-inline {
+ li.card-inline {
   display: inline-block;
   width: 300px;
   height: 326px;
   margin: 5px;
   text-align: center;
 }
-
 img.card-image {
   width: 150px;
   padding-top: 20px;
-}
+} */
 
 .user-details {
   margin-bottom: 40px;

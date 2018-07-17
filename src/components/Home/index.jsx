@@ -1,7 +1,7 @@
-import React from "../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react";
-import { Link } from "../../../../../../Library/Caches/typescript/2.9/node_modules/@types/react-router-dom";
-import _ from "../../../../../../Library/Caches/typescript/2.9/node_modules/@types/lodash";
-import "./home.css";
+import React from "react";
+import { Link } from "react-router-dom";
+import _ from "lodash";
+import { Container, Row, Col } from "reactstrap";
 
 export default class Home extends React.Component {
   componentDidMount() {
@@ -17,24 +17,40 @@ export default class Home extends React.Component {
     return (
       <div className="body-home">
         <div className="container home">
-          <ul className="cards">
-            {this.props.topPodcasts.map(podcast => {
-              return (
-                <li className="card card-inline" key={podcast.id}>
-                  <img
-                    className="card-img-top card-image"
-                    src={podcast.artworkUrl100}
-                  />
-                  <div className="card-block">
-                    <h4 className="card-title">{podcast.name}</h4>
-                    <Link to={`/${podcast.id}`} className="btn">
-                      Details
-                    </Link>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+          <h1 className="text-center">Top Podcast</h1>
+          {/* <div className="cards-list"> */}
+          <Container>
+            <ul className="cards">
+              <Row>
+                {this.props.topPodcasts.map(podcast => {
+                  return (
+                    <Col xs="12" sm="12" md="6" lg="3">
+                      <li key={podcast.id}>
+                        <div
+                          className="card"
+                          style={{
+                            backgroundSize: "contain",
+                            backgroundRepeat: "no-repeat",
+                            backgroundImage:
+                              "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(" +
+                              podcast.artworkUrl100 +
+                              ")"
+                          }}
+                        >
+                          {/* <div className="card-category">Popular</div> */}
+                          <div className="card-description">
+                            <h2>{podcast.name}</h2>
+                          </div>
+                          <Link to={`/${podcast.id}`} className="card-link" />
+                        </div>
+                      </li>
+                    </Col>
+                  );
+                })}
+              </Row>
+            </ul>
+          </Container>
+          {/* </div> */}
         </div>
       </div>
     );
