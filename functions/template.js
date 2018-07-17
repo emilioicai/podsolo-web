@@ -6,9 +6,9 @@ const template = opts => {
       <title>Podcasts</title>
       <meta name="description" content="Top podcasts">
       <!-- Bootstrap -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
       <!-- Custom CSS -->
-      <link rel="stylesheet" href="/assets/custom.css" />
+      <link rel="stylesheet" href="/assets/styles/main.css" />
     </head>
     <body>
       <div id="root">${opts.body}</div>
