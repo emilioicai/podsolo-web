@@ -1,6 +1,7 @@
 import React from "react";
 import _ from "lodash";
-import Loading from "../Loading";
+import Loading from "./Loading.jsx";
+import Home from "./Home.jsx";
 import {
   Card,
   Button,
@@ -8,6 +9,7 @@ import {
   CardText,
   Row,
   Col,
+  Container,
   CardColumns
 } from "reactstrap";
 
@@ -15,7 +17,6 @@ export default class User extends React.Component {
   state = {
     loadingMore: false
   };
-
   limit = 12;
 
   componentDidMount = () => {
@@ -48,12 +49,18 @@ export default class User extends React.Component {
   };
 
   render() {
+    console.log(this.props.selectedPodcast);
     if (_.isEmpty(this.props.episodes)) {
       return <Loading />;
     }
     const { episodes } = this.props;
     return (
       <div>
+        {/* <Container>
+          <div>
+            <Col sm="2" />
+          </div>
+        </Container> */}
         <ul>
           <CardColumns>
             {/* <Row> */}

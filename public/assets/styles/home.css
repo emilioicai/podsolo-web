@@ -20,18 +20,35 @@
   font-weight: 800;
 }
 
-.card {
+@media (max-width: 480px) {
+  .body-home h1 {
+    font-size: 40px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .body-home h1 {
+    font-size: 50px;
+  }
+}
+@media only screen and (min-width: 767px) and (max-width: 1025px) {
+  .body-home h1 {
+    font-size: 70px;
+  }
+}
+
+.card-home {
   height: 200px;
   width: 200px;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
   background-position: center;
   color: white;
+  background-color: transparent !important;
   position: relative;
   margin-bottom: 15px;
   border-radius: 0 !important;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.card-user {
+.card-home-user {
   position: absolute;
   right: 10px;
   top: 10px;
@@ -39,36 +56,35 @@
 
   border-radius: 0;
 }
-.card-category {
+.card-home-category {
   position: absolute;
   top: 10px;
   left: 10px;
   font-size: 15px;
   text-transform: uppercase;
 }
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-description h2 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-.card-link {
+.card-home-description {
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
+  font-size: 24px;
   opacity: 0;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin: 0;
+  text-align: center;
+  padding: 10%;
+  color: white;
 }
-.card-link:hover {
-  opacity: 0.1;
+.card-home-description:hover {
+  opacity: 1;
+}
+.card-home-link {
+}
+
+.hidden {
+  visibility: hidden;
 }
