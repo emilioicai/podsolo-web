@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
 import Home from "../components/Home.jsx";
 import EpisodeList from "../components/EpisodeList.jsx";
-import { getEpisodes, getTopPodcasts } from "api";
+import { getEpisodes, getTopPodcasts, getPodcast } from "api";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,7 +22,19 @@ export default class App extends React.Component {
   }
 
   selectPodcast = podcastId => {
-    this.setState({ selectedPodcast: podcastId });
+    const podcastData = this.state.topPodcasts.find(x => x.id === podcastId);
+    this.setState({ selectedPodcast: podcastData });
+  };
+
+  selectPodcastById = (podcastId, cb) => {
+    getPodcast(podcastId)
+      .then(podcast => {
+        return this.setState({ selectedPodcast: podcast });
+      })
+      .catch(err => {
+        console.error("Error when getting podcast:", err);
+        return cb(err, null);
+      });
   };
 
   getEpisodes = (podcastId, limit, clearEpisodes = true, cb) => {
@@ -59,13 +71,6 @@ export default class App extends React.Component {
   };
 
   render() {
-    let selectedPodcast = null;
-    if (this.state.topPodcasts && this.state.selectedPodcast) {
-      selectedPodcast = this.state.topPodcasts.find(
-        x => x.id === this.state.selectedPodcast
-      );
-    }
-
     return (
       <div>
         <nav id="mainNav" className="navbar navbar-custom">
@@ -85,7 +90,8 @@ export default class App extends React.Component {
                 {...props}
                 episodes={this.state.episodes}
                 getEpisodes={this.getEpisodes}
-                selectedPodcast={selectedPodcast}
+                selectedPodcast={this.state.selectedPodcast}
+                selectPodcastById={this.selectPodcastById}
               />
             )}
           />

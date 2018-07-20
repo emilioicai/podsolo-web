@@ -35,7 +35,24 @@ const getTopPodcasts = () => {
     });
 };
 
+const getPodcast = podcastId => {
+  return fetch(`//${API_URL}/podcast?podcastId=${podcastId}`)
+    .then(response => {
+      if (response.status >= 400) {
+        throw new Error("Bad response from server");
+      }
+      return response.json();
+    })
+    .then(podcast => {
+      return podcast;
+    })
+    .catch(err => {
+      console.error("Error retrieving podcast: ", err);
+    });
+};
+
 module.exports = {
   getEpisodes,
-  getTopPodcasts
+  getTopPodcasts,
+  getPodcast
 };

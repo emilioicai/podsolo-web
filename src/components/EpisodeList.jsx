@@ -22,6 +22,9 @@ export default class User extends React.Component {
   componentDidMount = () => {
     // TODO: Don't retrieve episodes if the list is the list is already present (it has been isomorphically fetched)
     this.props.getEpisodes(this.props.match.params.id, this.limit);
+    if (!this.props.selectedPodcast) {
+      this.props.selectPodcastById(this.props.match.params.id);
+    }
   };
 
   componentWillReceiveProps = nextProps => {
@@ -49,7 +52,7 @@ export default class User extends React.Component {
   };
 
   render() {
-    console.log(this.props.selectedPodcast);
+    console.log("---->", this.props.selectedPodcast);
     if (_.isEmpty(this.props.episodes)) {
       return <Loading />;
     }
