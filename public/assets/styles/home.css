@@ -78,6 +78,7 @@
   text-align: center;
   padding: 10%;
   color: white;
+  width: 100%;
 }
 .card-home-description:hover {
   opacity: 1;

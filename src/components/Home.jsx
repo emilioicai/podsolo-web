@@ -14,7 +14,6 @@ export default class Home extends React.Component {
       this.props.getTopPodcasts();
     }
   }
-  podcast = this.props.topPodcasts.find(x => x.id === "1408796715");
 
   showText = podcastId => {
     this.setState({
@@ -29,8 +28,6 @@ export default class Home extends React.Component {
   };
 
   render() {
-    console.log(this.podcast.artworkUrl100);
-
     if (_.isEmpty(this.props.topPodcasts)) {
       return <div className="container loader">Loading top podcasts...</div>;
     }

@@ -1,7 +1,6 @@
 import React from "react";
 import _ from "lodash";
 import Loading from "./Loading.jsx";
-import Home from "./Home.jsx";
 import {
   Card,
   Button,
@@ -9,8 +8,7 @@ import {
   CardText,
   Row,
   Col,
-  Container,
-  CardColumns
+  Container
 } from "reactstrap";
 
 export default class User extends React.Component {
@@ -28,16 +26,20 @@ export default class User extends React.Component {
   };
 
   componentWillReceiveProps = nextProps => {
-    if (nextProps.match.params.id !== this.props.match.params.id) {
+    if (
+      this.props.selectedPodcast &&
+      nextProps.selectedPodcast &&
+      this.props.selectedPodcast.id !== nextProps.selectedPodcast.id
+    ) {
       // user has navigated to a new episodes page
       // load data for that podcast and set to state
-      this.props.getEpisodes(nextProps.match.params.id, this.limit);
+      this.props.getEpisodes(nextProps.selectedPodcast.id, this.limit);
     }
   };
 
   loadMore = () => {
     this.props.getEpisodes(
-      this.props.match.params.id,
+      this.props.selectedPodcast.id,
       this.props.episodes.length + this.limit,
       false,
       () => {
@@ -52,48 +54,54 @@ export default class User extends React.Component {
   };
 
   render() {
-    console.log("---->", this.props.selectedPodcast);
-    if (_.isEmpty(this.props.episodes)) {
-      return <Loading />;
-    }
+    // console.log(
+    //   "---->",
+    //   this.props.selectPodcastById(this.props.match.params.id)
+    // );
     const { episodes } = this.props;
     return (
       <div>
-        {/* <Container>
-          <div>
-            <Col sm="2" />
-          </div>
-        </Container> */}
-        <ul>
-          <CardColumns>
-            {/* <Row> */}
-            {episodes.map((e, i) => {
-              return (
-                // <Col sm="4">
-                <li className="list" key={i}>
-                  <Card body>
-                    <CardTitle>{e.title}</CardTitle>
-                    <CardText>
-                      <div
-                        dangerouslySetInnerHTML={{ __html: e.description }}
-                      />
-                    </CardText>
-                    <Button>Go somewhere</Button>
-                  </Card>
-                </li>
-                // </Col>
-              );
-            })}
-            {/* </Row>  */}
-          </CardColumns>
-        </ul>
-
+        <Container>
+          <Row>
+            <Col md="2">
+              {this.props.selectedPodcast && (
+                <img src={this.props.selectedPodcast.artworkUrl100} />
+              )}
+              {!this.props.selectedPodcast && <Loading />}
+            </Col>
+            <Col md="10">
+              {_.isEmpty(this.props.episodes) && <Loading />}
+              {!_.isEmpty(this.props.episodes) && (
+                <ul>
+                  {episodes.map((e, i) => {
+                    return (
+                      <li className="list" key={i}>
+                        <Card body>
+                          <CardTitle>{e.title}</CardTitle>
+                          <CardText>
+                            <div
+                              dangerouslySetInnerHTML={{
+                                __html: e.description
+                              }}
+                            />
+                          </CardText>
+                          <Button>Go somewhere</Button>
+                        </Card>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
+            </Col>
+          </Row>
+        </Container>
         <div id="load-more">
-          {!this.state.loadingMore && (
-            <a onClick={this.loadMore} href="#load-more">
-              Load more...
-            </a>
-          )}
+          {!_.isEmpty(this.props.episodes) &&
+            !this.state.loadingMore && (
+              <a onClick={this.loadMore} href="#load-more">
+                Load more...
+              </a>
+            )}
           {this.state.loadingMore && <Loading />}
         </div>
       </div>
