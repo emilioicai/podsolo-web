@@ -28431,7 +28431,7 @@ module.exports = getIteratorFn;
 /* unused harmony export NavLink */
 /* unused harmony export Breadcrumb */
 /* unused harmony export BreadcrumbItem */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Button; });
+/* unused harmony export Button */
 /* unused harmony export ButtonDropdown */
 /* unused harmony export ButtonGroup */
 /* unused harmony export ButtonToolbar */
@@ -28441,7 +28441,7 @@ module.exports = getIteratorFn;
 /* unused harmony export DropdownToggle */
 /* unused harmony export Fade */
 /* unused harmony export Badge */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return Card; });
+/* unused harmony export Card */
 /* unused harmony export CardLink */
 /* unused harmony export CardGroup */
 /* unused harmony export CardDeck */
@@ -28459,8 +28459,8 @@ module.exports = getIteratorFn;
 /* unused harmony export CarouselIndicators */
 /* unused harmony export CarouselCaption */
 /* unused harmony export CardSubtitle */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return CardText; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return CardTitle; });
+/* unused harmony export CardText */
+/* unused harmony export CardTitle */
 /* unused harmony export Popover */
 /* unused harmony export PopoverContent */
 /* unused harmony export PopoverBody */
@@ -39344,29 +39344,50 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   }
 
   render() {
-    // console.log(
-    //   "---->",
-    //   this.props.selectPodcastById(this.props.match.params.id)
-    // );
+    console.log(this.props.episodes);
     const { episodes } = this.props;
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "div",
-      null,
+      "dir",
+      { className: "body-episode" },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["a" /* Container */],
-        null,
+        "div",
+        { className: "container-fluid" },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           __WEBPACK_IMPORTED_MODULE_3_reactstrap__["b" /* Row */],
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_3_reactstrap__["c" /* Col */],
-            { md: "2" },
-            this.props.selectedPodcast && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: this.props.selectedPodcast.artworkUrl100 }),
-            !this.props.selectedPodcast && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null)
+            { md: "3" },
+            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              "div",
+              { className: "podcast-information text-center" },
+              this.props.selectedPodcast && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "div",
+                { className: "podcast-text" },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { src: this.props.selectedPodcast.artworkUrl100 }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "h1",
+                  null,
+                  this.props.selectedPodcast.name
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "p",
+                  null,
+                  this.props.selectedPodcast.artistName
+                ),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                  "h6",
+                  null,
+                  this.props.episodes.length,
+                  " EPISODES"
+                )
+              ),
+              !this.props.selectedPodcast && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null)
+            )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_3_reactstrap__["c" /* Col */],
-            { md: "10" },
+            { md: "9" },
             __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null),
             !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
               "ul",
@@ -39376,43 +39397,84 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                   "li",
                   { className: "list", key: i },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_3_reactstrap__["d" /* Card */],
-                    { body: true },
+                    "div",
+                    { className: "product" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      __WEBPACK_IMPORTED_MODULE_3_reactstrap__["e" /* CardTitle */],
-                      null,
-                      e.title
+                      "div",
+                      { className: "product-upvote" },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "product-arrow" }),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "div",
+                        { className: "product-count" },
+                        "95"
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
+                      src: "kudoz.jpg",
+                      alt: "kudoz",
+                      className: "product-image hidden-xs"
+                    }),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      "div",
+                      { className: "product-body" },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "h3",
+                        null,
+                        "Kudoz"
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "p",
+                        null,
+                        "Best job offers on your phone"
+                      )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      __WEBPACK_IMPORTED_MODULE_3_reactstrap__["f" /* CardText */],
-                      null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", {
-                        dangerouslySetInnerHTML: {
-                          __html: e.description
-                        }
-                      })
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      __WEBPACK_IMPORTED_MODULE_3_reactstrap__["g" /* Button */],
-                      null,
-                      "Go somewhere"
+                      "ul",
+                      { className: "list-inline product-controls hidden-sm hidden-xs" },
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          "a",
+                          { href: "" },
+                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart" })
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          "a",
+                          { href: "" },
+                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-share" })
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          "a",
+                          { href: "" },
+                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
+                        )
+                      )
                     )
                   )
                 );
               })
             )
           )
-        )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { id: "load-more" },
-        !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && !this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "a",
-          { onClick: this.loadMore, href: "#load-more" },
-          "Load more..."
         ),
-        this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null)
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          "div",
+          { id: "load-more" },
+          !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && !this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "a",
+            { onClick: this.loadMore, href: "#load-more" },
+            "Load more..."
+          ),
+          this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null)
+        )
       )
     );
   }

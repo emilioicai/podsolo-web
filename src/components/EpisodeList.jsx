@@ -54,57 +54,77 @@ export default class User extends React.Component {
   };
 
   render() {
-    // console.log(
-    //   "---->",
-    //   this.props.selectPodcastById(this.props.match.params.id)
-    // );
+    console.log(this.props.episodes);
     const { episodes } = this.props;
     return (
-      <div>
-        <Container>
+      <dir className="body-episode">
+        <div className="container-fluid">
           <Row>
-            <Col md="2">
-              {this.props.selectedPodcast && (
-                <img src={this.props.selectedPodcast.artworkUrl100} />
-              )}
-              {!this.props.selectedPodcast && <Loading />}
+            <Col md="3">
+              <div className="podcast-information text-center">
+                {this.props.selectedPodcast && (
+                  <div className="podcast-text">
+                    <img src={this.props.selectedPodcast.artworkUrl100} />
+                    <h1>{this.props.selectedPodcast.name}</h1>
+                    <p>{this.props.selectedPodcast.artistName}</p>
+                    {this.props.episodes &&
+                      this.props.episodes.length > 0 && (
+                        <h6>{this.props.episodes.length} EPISODES</h6>
+                      )}
+                  </div>
+                )}
+                {!this.props.selectedPodcast && <Loading />}
+              </div>
             </Col>
-            <Col md="10">
+            <Col md="9">
               {_.isEmpty(this.props.episodes) && <Loading />}
               {!_.isEmpty(this.props.episodes) && (
-                <ul>
+                <div>
                   {episodes.map((e, i) => {
                     return (
-                      <li className="list" key={i}>
-                        <Card body>
-                          <CardTitle>{e.title}</CardTitle>
-                          <CardText>
-                            <div
-                              dangerouslySetInnerHTML={{
-                                __html: e.description
-                              }}
-                            />
-                          </CardText>
-                          <Button>Go somewhere</Button>
-                        </Card>
-                      </li>
+                      <div className="product">
+                        <div className="product-upvote">
+                          <i className="fas fa-broadcast-tower" />
+                        </div>
+                        <div className="product-body">
+                          <h3>{e.title}</h3>
+                          <p>{e.itunes_duration}</p>
+                        </div>
+                        <ul className="list-inline product-controls hidden-sm hidden-xs">
+                          <li>
+                            <a href="">
+                              <i className="fa fa-heart" />
+                            </a>
+                          </li>
+                          <li>
+                            <a href="">
+                              <i className="fa fa-share" />
+                            </a>
+                          </li>
+                          <li>
+                            <a href="">
+                              <i className="fa fa-star" />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     );
                   })}
-                </ul>
+                </div>
               )}
             </Col>
           </Row>
-        </Container>
-        <div id="load-more">
-          {!_.isEmpty(this.props.episodes) &&
-            !this.state.loadingMore && (
-              <a onClick={this.loadMore} href="#load-more">
-                Load more...
-              </a>
-            )}
-          {this.state.loadingMore && <Loading />}
+          <div id="load-more">
+            {!_.isEmpty(this.props.episodes) &&
+              !this.state.loadingMore && (
+                <a onClick={this.loadMore} href="#load-more">
+                  Load more...
+                </a>
+              )}
+            {this.state.loadingMore && <Loading />}
+          </div>
         </div>
-      </div>
+      </dir>
     );
   }
 }
