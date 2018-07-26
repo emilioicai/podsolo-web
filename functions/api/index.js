@@ -51,8 +51,25 @@ const getPodcast = podcastId => {
     });
 };
 
+const getCountries = countries => {
+  return fetch(`//${API_URL}/countries`)
+    .then(response => {
+      if (response.status >= 400) {
+        throw new Error("Bad response from server");
+      }
+      return response.json();
+    })
+    .then(countries => {
+      return countries;
+    })
+    .catch(err => {
+      console.error("Error retrieving countries: ", err);
+    });
+};
+
 module.exports = {
   getEpisodes,
   getTopPodcasts,
-  getPodcast
+  getPodcast,
+  getCountries,
 };
