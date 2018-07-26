@@ -15,7 +15,6 @@ const template = opts => {
     </head>
     <body>
       <div id="root">${opts.body}</div>
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js'></script>
     </body>
    
     

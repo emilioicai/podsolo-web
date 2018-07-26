@@ -10,6 +10,7 @@ import {
   Col,
   Container
 } from "reactstrap";
+import * as moment from 'moment';
 
 export default class User extends React.Component {
   state = {
