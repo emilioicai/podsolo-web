@@ -88,25 +88,28 @@ export default class User extends React.Component {
                         </div>
                         <div className="product-body">
                           <h3>{e.title}</h3>
-                          <p>{e.itunes_duration}</p>
+                          <p>{moment(e.created).format("MMMM Do YYYY")}</p>
                         </div>
-                        <ul className="list-inline product-controls hidden-sm hidden-xs">
-                          <li>
-                            <a href="">
-                              <i className="fa fa-heart" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="">
-                              <i className="fa fa-share" />
-                            </a>
-                          </li>
-                          <li>
-                            <a href="">
-                              <i className="fa fa-star" />
-                            </a>
-                          </li>
-                        </ul>
+                        <div>
+                          <p>{e.itunes_duration}</p>
+                          <ul className="list-inline product-controls hidden-sm hidden-xs">
+                            <li>
+                              <a href="">
+                                <i className="fa fa-heart" />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="">
+                                <i className="fa fa-share" />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="">
+                                <i className="fa fa-star" />
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
                       </div>
                     );
                   })}

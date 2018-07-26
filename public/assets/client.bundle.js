@@ -36293,37 +36293,46 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                       "p",
                       null,
-                      e.itunes_duration
+                      moment(e.created).format("MMMM Do YYYY")
                     )
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "ul",
-                    { className: "list-inline product-controls hidden-sm hidden-xs" },
+                    "div",
+                    null,
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "li",
+                      "p",
                       null,
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart" })
-                      )
+                      e.itunes_duration
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "li",
-                      null,
+                      "ul",
+                      { className: "list-inline product-controls hidden-sm hidden-xs" },
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-share" })
-                      )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "li",
-                      null,
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          "a",
+                          { href: "" },
+                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart" })
+                        )
+                      ),
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "" },
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          "a",
+                          { href: "" },
+                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-share" })
+                        )
+                      ),
+                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                        "li",
+                        null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                          "a",
+                          { href: "" },
+                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
+                        )
                       )
                     )
                   )

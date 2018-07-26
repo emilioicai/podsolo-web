@@ -10,12 +10,15 @@ const template = opts => {
       <!-- Custom CSS -->
       <link rel="stylesheet" href="/assets/styles/main.css" />
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-
+      
 
     </head>
     <body>
       <div id="root">${opts.body}</div>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js'></script>
     </body>
+   
+    
     <script>
       window.__initialState = ${opts.initialState}
     </script>

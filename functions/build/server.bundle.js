@@ -39375,7 +39375,7 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                   null,
                   this.props.selectedPodcast.artistName
                 ),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                this.props.episodes && this.props.episodes.length > 0 && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                   "h6",
                   null,
                   this.props.episodes.length,
@@ -39390,73 +39390,59 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             { md: "9" },
             __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null),
             !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
+              "div",
               null,
               episodes.map((e, i) => {
                 return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "li",
-                  { className: "list", key: i },
+                  "div",
+                  { className: "product" },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "div",
-                    { className: "product" },
+                    { className: "product-upvote" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fas fa-broadcast-tower" })
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "div",
+                    { className: "product-body" },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "div",
-                      { className: "product-upvote" },
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "product-arrow" }),
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "div",
-                        { className: "product-count" },
-                        "95"
-                      )
-                    ),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", {
-                      src: "kudoz.jpg",
-                      alt: "kudoz",
-                      className: "product-image hidden-xs"
-                    }),
-                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "div",
-                      { className: "product-body" },
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "h3",
-                        null,
-                        "Kudoz"
-                      ),
-                      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "p",
-                        null,
-                        "Best job offers on your phone"
-                      )
+                      "h3",
+                      null,
+                      e.title
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "ul",
-                      { className: "list-inline product-controls hidden-sm hidden-xs" },
+                      "p",
+                      null,
+                      moment(e.created).format("MMM Do YY")
+                    )
+                  ),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                    "ul",
+                    { className: "list-inline product-controls hidden-sm hidden-xs" },
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      "li",
+                      null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "li",
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          "a",
-                          { href: "" },
-                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart" })
-                        )
-                      ),
+                        "a",
+                        { href: "" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-heart" })
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      "li",
+                      null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "li",
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          "a",
-                          { href: "" },
-                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-share" })
-                        )
-                      ),
+                        "a",
+                        { href: "" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-share" })
+                      )
+                    ),
+                    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                      "li",
+                      null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "li",
-                        null,
-                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                          "a",
-                          { href: "" },
-                          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
-                        )
+                        "a",
+                        { href: "" },
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fa fa-star" })
                       )
                     )
                   )
