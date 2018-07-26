@@ -1,4 +1,4 @@
-# Podcasts Web
+# PodSolo Web
 
 ## setup
 The web relies in both functions and hosting so npm needs to be run on both parts
