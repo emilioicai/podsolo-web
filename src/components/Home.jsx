@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import _ from "lodash";
 import { Container, Row, Col } from "reactstrap";
+import SelectCountry from "./SelectCountry.jsx";
 
 export default class Home extends React.Component {
   state = {
@@ -13,7 +14,14 @@ export default class Home extends React.Component {
     if (_.isEmpty(this.props.topPodcasts)) {
       this.props.getTopPodcasts();
     }
+    if (_.isEmpty(this.props.countries)) {
+      this.props.getCountries();
+    }
   }
+
+  // Countries = ()=> {
+
+  // }
 
   showText = podcastId => {
     this.setState({
@@ -34,9 +42,19 @@ export default class Home extends React.Component {
 
     return (
       <div className="body-home">
-        {/* <div className="cards-list"> */}
         <Container>
-          <h1 className="text-center">Top Podcast</h1>
+          <div className="text-center">
+            <h1>Top Podcast</h1>
+            {this.props.countries && (
+              <SelectCountry
+                countries={this.props.countries}
+                getTopPodcasts={this.props.getTopPodcasts}
+                selectCountry={this.props.selectCountry}
+                selectedCountry={this.props.selectedCountry}
+              />
+            )}
+          </div>
+
           <Row>
             {this.props.topPodcasts.map(podcast => {
               return (
@@ -72,7 +90,6 @@ export default class Home extends React.Component {
             })}
           </Row>
         </Container>
-        {/* </div> */}
       </div>
     );
   }

@@ -19,8 +19,8 @@ const getEpisodes = (podcastId, limit = 999) => {
     });
 };
 
-const getTopPodcasts = () => {
-  return fetch(`//${API_URL}/topPodcasts`)
+const getTopPodcasts = (country = "us") => {
+  return fetch(`//${API_URL}/topPodcasts?country=${country}`)
     .then(response => {
       if (response.status >= 400) {
         throw new Error("Bad response from server");
@@ -51,7 +51,7 @@ const getPodcast = podcastId => {
     });
 };
 
-const getCountries = countries => {
+const getCountries = () => {
   return fetch(`//${API_URL}/countries`)
     .then(response => {
       if (response.status >= 400) {
@@ -71,5 +71,5 @@ module.exports = {
   getEpisodes,
   getTopPodcasts,
   getPodcast,
-  getCountries,
+  getCountries
 };

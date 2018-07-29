@@ -26,6 +26,11 @@ h6 {
   color: hsla(0, 0%, 100%, 0.6);
   letter-spacing: 1px;
 }
+.duration-text {
+  color: #c7c1c1;
+  font-weight: 100;
+  text-align: center;
+}
 
 .product {
   display: flex;
@@ -47,7 +52,7 @@ h6 {
 }
 .product-body p {
   font-weight: lighter;
-  color: #999999;
+  color: #c7c1c1;
   margin-bottom: 0;
 }
 
