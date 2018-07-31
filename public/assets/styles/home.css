@@ -79,6 +79,9 @@
   padding: 10%;
   color: white;
   width: 100%;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .card-home-description:hover {
   opacity: 1;

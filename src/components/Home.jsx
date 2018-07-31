@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import _ from "lodash";
 import { Container, Row, Col } from "reactstrap";
 import SelectCountry from "./SelectCountry.jsx";
+import Loading from "./Loading.jsx";
 
 export default class Home extends React.Component {
   state = {
@@ -18,10 +19,6 @@ export default class Home extends React.Component {
       this.props.getCountries();
     }
   }
-
-  // Countries = ()=> {
-
-  // }
 
   showText = podcastId => {
     this.setState({
@@ -45,6 +42,7 @@ export default class Home extends React.Component {
         <Container>
           <div className="text-center">
             <h1>Top Podcast</h1>
+            {!this.props.countries && <Loading />}
             {this.props.countries && (
               <SelectCountry
                 countries={this.props.countries}
@@ -69,10 +67,7 @@ export default class Home extends React.Component {
                     style={{
                       backgroundSize: "contain",
                       backgroundRepeat: "no-repeat",
-                      backgroundImage:
-                        "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(" +
-                        podcast.artworkUrl100 +
-                        ")"
+                      backgroundImage: "url(" + podcast.artworkUrl100 + ")"
                     }}
                   >
                     <Link

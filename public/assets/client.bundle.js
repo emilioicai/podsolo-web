@@ -54181,6 +54181,8 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_lodash__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__(72);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__SelectCountry_jsx__ = __webpack_require__(247);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Loading_jsx__ = __webpack_require__(246);
+
 
 
 
@@ -54215,10 +54217,6 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     }
   }
 
-  // Countries = ()=> {
-
-  // }
-
   render() {
     if (__WEBPACK_IMPORTED_MODULE_2_lodash___default.a.isEmpty(this.props.topPodcasts)) {
       return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54242,6 +54240,7 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
             null,
             "Top Podcast"
           ),
+          !this.props.countries && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_5__Loading_jsx__["a" /* default */], null),
           this.props.countries && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_4__SelectCountry_jsx__["a" /* default */], {
             countries: this.props.countries,
             getTopPodcasts: this.props.getTopPodcasts,
@@ -54268,7 +54267,7 @@ class Home extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                   style: {
                     backgroundSize: "contain",
                     backgroundRepeat: "no-repeat",
-                    backgroundImage: "linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(" + podcast.artworkUrl100 + ")"
+                    backgroundImage: "url(" + podcast.artworkUrl100 + ")"
                   }
                 },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54350,18 +54349,29 @@ class SelectContry extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compone
         __WEBPACK_IMPORTED_MODULE_1_reactstrap__["e" /* FormGroup */],
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_1_reactstrap__["f" /* Input */],
-          { type: "select", onChange: this.selectCountry },
-          this.props.countries.map(country => {
-            return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "option",
-              {
-                value: country.code,
-                selected: country.code === this.props.selectedCountry
+          "div",
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            __WEBPACK_IMPORTED_MODULE_1_reactstrap__["f" /* Input */],
+            {
+              style: {
+                width: "auto",
+                display: "inline-block"
               },
-              country.name
-            );
-          })
+              type: "select",
+              onChange: this.selectCountry
+            },
+            this.props.countries.map(country => {
+              return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                "option",
+                {
+                  value: country.code,
+                  selected: country.code === this.props.selectedCountry
+                },
+                country.name
+              );
+            })
+          )
         )
       )
     );

@@ -92,7 +92,6 @@ export default class User extends React.Component {
             )}
           </Col>
         </Row>
-
         <div id="load-more">
           {!_.isEmpty(this.props.episodes) &&
             !this.state.loadingMore && (

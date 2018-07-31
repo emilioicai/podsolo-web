@@ -3,6 +3,7 @@
 @import "episodeList.css";
 @import "loading.css";
 @import "footer.css";
+@import "selectCountry";
 html {
   height: 100vh;
 }

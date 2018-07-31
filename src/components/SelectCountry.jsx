@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, FormGroup, Label, Input } from "reactstrap";
+import { Form, FormGroup, Input, Col } from "reactstrap";
 
 export default class SelectContry extends React.Component {
   selectCountry = event => {
@@ -11,18 +11,29 @@ export default class SelectContry extends React.Component {
     return (
       <Form>
         <FormGroup>
-          <Input type="select" onChange={this.selectCountry}>
-            {this.props.countries.map(country => {
-              return (
-                <option
-                  value={country.code}
-                  selected={country.code === this.props.selectedCountry}
-                >
-                  {country.name}
-                </option>
-              );
-            })}
-          </Input>
+          <div>
+            {/* <Col xs={7} sm={4} lg={2}> */}
+            <Input
+              style={{
+                width: "auto",
+                display: "inline-block"
+              }}
+              type="select"
+              onChange={this.selectCountry}
+            >
+              {this.props.countries.map(country => {
+                return (
+                  <option
+                    value={country.code}
+                    selected={country.code === this.props.selectedCountry}
+                  >
+                    {country.name}
+                  </option>
+                );
+              })}
+            </Input>
+            {/* </Col> */}
+          </div>
         </FormGroup>
       </Form>
     );
