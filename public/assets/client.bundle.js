@@ -12916,7 +12916,7 @@ module.exports = ReactNoopUpdateQueue;
 /* unused harmony export NavLink */
 /* unused harmony export Breadcrumb */
 /* unused harmony export BreadcrumbItem */
-/* unused harmony export Button */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return Button; });
 /* unused harmony export ButtonDropdown */
 /* unused harmony export ButtonGroup */
 /* unused harmony export ButtonToolbar */
@@ -53950,10 +53950,12 @@ module.exports = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_lodash__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Loading_jsx__ = __webpack_require__(246);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_reactstrap__ = __webpack_require__(72);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom__ = __webpack_require__(34);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Loading_jsx__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_reactstrap__ = __webpack_require__(72);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+
 
 
 
@@ -53997,10 +53999,10 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
       "div",
       { className: " episodes-body container-fluid" },
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        __WEBPACK_IMPORTED_MODULE_3_reactstrap__["b" /* Row */],
+        __WEBPACK_IMPORTED_MODULE_4_reactstrap__["b" /* Row */],
         null,
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3_reactstrap__["c" /* Col */],
+          __WEBPACK_IMPORTED_MODULE_4_reactstrap__["c" /* Col */],
           { md: "3" },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "div",
@@ -54026,13 +54028,13 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                 " EPISODES"
               )
             ),
-            !this.props.selectedPodcast && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null)
+            !this.props.selectedPodcast && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Loading_jsx__["a" /* default */], null)
           )
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          __WEBPACK_IMPORTED_MODULE_3_reactstrap__["c" /* Col */],
+          __WEBPACK_IMPORTED_MODULE_4_reactstrap__["c" /* Col */],
           { md: "9" },
-          __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null),
+          __WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Loading_jsx__["a" /* default */], null),
           !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             "div",
             null,
@@ -54056,7 +54058,7 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                     "p",
                     null,
-                    __WEBPACK_IMPORTED_MODULE_4_moment__(e.created).format("MMMM Do YYYY")
+                    __WEBPACK_IMPORTED_MODULE_5_moment__(e.created).format("MMMM Do YYYY")
                   )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54070,18 +54072,22 @@ class User extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
                 )
               );
             })
+          ),
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            "div",
+            { id: "load-more" },
+            !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && !this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+              __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["b" /* Link */],
+              { onClick: this.loadMore, to: "#load-more" },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+                __WEBPACK_IMPORTED_MODULE_4_reactstrap__["g" /* Button */],
+                { color: "info", size: "md" },
+                "Load more..."
+              )
+            ),
+            this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__Loading_jsx__["a" /* default */], null)
           )
         )
-      ),
-      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-        "div",
-        { id: "load-more" },
-        !__WEBPACK_IMPORTED_MODULE_1_lodash___default.a.isEmpty(this.props.episodes) && !this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "a",
-          { onClick: this.loadMore, href: "#load-more" },
-          "Load more..."
-        ),
-        this.state.loadingMore && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__Loading_jsx__["a" /* default */], null)
       )
     );
   }
@@ -54107,18 +54113,8 @@ class Footer extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
         { className: "footer-links" },
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           "a",
-          { href: "#" },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fab fa-github-alt" })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "a",
-          { href: "#" },
+          { href: "https://twitter.com/podsolo", target: "_blank" },
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fab fa-twitter" })
-        ),
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "a",
-          { href: "#" },
-          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("i", { className: "fab fa-linkedin" })
         )
       ),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -54159,7 +54155,7 @@ class Header extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
             __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
             { to: "/", className: "navbar-brand" },
-            "Top podcasts"
+            "Pod Solo"
           )
         )
       )
@@ -54356,7 +54352,9 @@ class SelectContry extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Compone
             {
               style: {
                 width: "auto",
-                display: "inline-block"
+                display: "inline-block",
+                marginBottom: "25px",
+                marginTop: " 5px"
               },
               type: "select",
               onChange: this.selectCountry

@@ -16,7 +16,9 @@ export default class SelectContry extends React.Component {
             <Input
               style={{
                 width: "auto",
-                display: "inline-block"
+                display: "inline-block",
+                marginBottom: "25px",
+                marginTop: " 5px"
               }}
               type="select"
               onChange={this.selectCountry}

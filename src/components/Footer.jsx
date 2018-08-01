@@ -4,14 +4,8 @@ export default class Footer extends React.Component {
     return (
       <div className="navbar navbar-fixed-bottom footer">
         <div className="footer-links">
-          <a href="#">
-            <i className="fab fa-github-alt" />
-          </a>
-          <a href="#">
+          <a href="https://twitter.com/podsolo" target="_blank">
             <i className="fab fa-twitter" />
-          </a>
-          <a href="#">
-            <i className="fab fa-linkedin" />
           </a>
         </div>
         <div className="footer-copyright">

@@ -26,6 +26,10 @@ h6 {
   color: hsla(0, 0%, 100%, 0.6);
   letter-spacing: 1px;
 }
+#load-more {
+  text-align: center;
+  margin-top: 20px;
+}
 .duration-text {
   color: #c7c1c1;
   font-weight: 100;

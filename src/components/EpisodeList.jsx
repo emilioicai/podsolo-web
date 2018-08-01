@@ -1,7 +1,8 @@
 import React from "react";
 import _ from "lodash";
+import { Link } from "react-router-dom";
 import Loading from "./Loading.jsx";
-import { Row, Col, Container } from "reactstrap";
+import { Row, Col, Button } from "reactstrap";
 import * as moment from "moment";
 
 export default class User extends React.Component {
@@ -90,17 +91,19 @@ export default class User extends React.Component {
                 })}
               </div>
             )}
+            <div id="load-more">
+              {!_.isEmpty(this.props.episodes) &&
+                !this.state.loadingMore && (
+                  <Link onClick={this.loadMore} to="#load-more">
+                    <Button color="info" size="md">
+                      Load more...
+                    </Button>
+                  </Link>
+                )}
+              {this.state.loadingMore && <Loading />}
+            </div>
           </Col>
         </Row>
-        <div id="load-more">
-          {!_.isEmpty(this.props.episodes) &&
-            !this.state.loadingMore && (
-              <a onClick={this.loadMore} href="#load-more">
-                Load more...
-              </a>
-            )}
-          {this.state.loadingMore && <Loading />}
-        </div>
       </div>
     );
   }
