@@ -2,10 +2,27 @@
 @import "home.css";
 @import "episodeList.css";
 @import "loading.css";
-
+@import "footer.css";
+@import "selectCountry";
+html {
+  height: 100vh;
+}
 body {
   font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color: #022f40;
+  background-image: linear-gradient(
+    to bottom,
+    #048a81,
+    #007276,
+    #005b68,
+    #004455,
+    #022f40
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  min-height: 100vh;
+  position: relative;
+  padding-bottom: 150px;
 }
 
 .navbar-custom {

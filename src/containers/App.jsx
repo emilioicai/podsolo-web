@@ -1,9 +1,11 @@
 import React from "react";
 import { Switch, Route } from "react-router";
 import { Link } from "react-router-dom";
-import Home from "../components/Home/index.jsx";
-import EpisodeList from "../components/EpisodeList/index.jsx";
-import { getEpisodes, getTopPodcasts } from "api";
+import Home from "../components/Home.jsx";
+import EpisodeList from "../components/EpisodeList.jsx";
+import { getEpisodes, getTopPodcasts, getPodcast, getCountries } from "api";
+import Header from "../components/Header.jsx";
+import Footer from "../components/Footer.jsx";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -14,11 +16,34 @@ export default class App extends React.Component {
       this.state = props.state;
     } else {
       this.state = {
+        selectedPodcast: null,
         topPodcasts: [],
-        episodes: []
+        episodes: [],
+        countries: [],
+        selectedCountry: "us"
       };
     }
   }
+
+  selectPodcast = podcastId => {
+    const podcastData = this.state.topPodcasts.find(x => x.id === podcastId);
+    this.setState({ selectedPodcast: podcastData });
+  };
+
+  selectPodcastById = (podcastId, cb) => {
+    getPodcast(podcastId)
+      .then(podcast => {
+        return this.setState({ selectedPodcast: podcast });
+      })
+      .catch(err => {
+        console.error("Error when getting podcast:", err);
+        return cb(err, null);
+      });
+  };
+
+  selectCountry = (country = "us") => {
+    this.setState({ selectedCountry: country });
+  };
 
   getEpisodes = (podcastId, limit, clearEpisodes = true, cb) => {
     if (clearEpisodes) {
@@ -40,8 +65,8 @@ export default class App extends React.Component {
       });
   };
 
-  getTopPodcasts = () => {
-    getTopPodcasts()
+  getTopPodcasts = (country = "us") => {
+    getTopPodcasts(country)
       .then(topPodcasts => {
         this.setState({
           topPodcasts
@@ -53,18 +78,23 @@ export default class App extends React.Component {
       });
   };
 
+  getCountries = () => {
+    getCountries()
+      .then(countries => {
+        this.setState({
+          countries
+        });
+        return null;
+      })
+      .catch(err => {
+        console.error("Error when getting contries:", err);
+      });
+  };
+
   render() {
     return (
       <div>
-        <nav id="mainNav" className="navbar navbar-custom">
-          <div className="container">
-            <div className="navbar-header">
-              <Link to="/" className="navbar-brand">
-                Top podcasts
-              </Link>
-            </div>
-          </div>
-        </nav>
+        <Header />
         <Switch>
           <Route
             path="/:id"
@@ -73,6 +103,8 @@ export default class App extends React.Component {
                 {...props}
                 episodes={this.state.episodes}
                 getEpisodes={this.getEpisodes}
+                selectedPodcast={this.state.selectedPodcast}
+                selectPodcastById={this.selectPodcastById}
               />
             )}
           />
@@ -83,10 +115,16 @@ export default class App extends React.Component {
                 {...props}
                 topPodcasts={this.state.topPodcasts}
                 getTopPodcasts={this.getTopPodcasts}
+                selectPodcast={this.selectPodcast}
+                countries={this.state.countries}
+                getCountries={this.getCountries}
+                selectCountry={this.selectCountry}
+                selectedCountry={this.state.selectedCountry}
               />
             )}
           />
         </Switch>
+        <Footer />
       </div>
     );
   }
