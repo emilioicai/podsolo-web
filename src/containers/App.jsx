@@ -42,7 +42,7 @@ export default class App extends React.Component {
   };
 
   selectCountry = (country = "us") => {
-    this.setState({ selectedCountry: country });
+    this.setState({ selectedCountry: country, topPodcasts: [] });
   };
 
   getEpisodes = (podcastId, limit, clearEpisodes = true, cb) => {

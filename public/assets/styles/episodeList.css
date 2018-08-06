@@ -34,34 +34,30 @@ h6 {
   color: #c7c1c1;
   font-weight: 100;
   text-align: center;
+  float: right;
 }
 
-.product {
-  display: flex;
+.card-episode {
   /* align-items: center; */
   padding: 20px;
   border-radius: 3px;
   transition: all 0.15s ease;
 }
-
-/* Body design */
-.product-body {
-  flex: 1 1 auto;
-}
-.product-body h3 {
+.card-episode-body h3 {
   font-weight: bold;
   font-size: 23px;
   margin-top: 0;
   color: #fff;
 }
-.product-body p {
+.card-episode-body p {
   font-weight: lighter;
   color: #c7c1c1;
   margin-bottom: 0;
 }
 
 /* Upvote design */
-.product-upvote {
+.card-episode-upvote {
+  float: left;
   padding-right: 20px;
   text-align: center;
   transition: all 0.15s ease;
@@ -71,51 +67,37 @@ h6 {
   color: hsla(0, 0%, 100%, 0.6);
   margin-top: 5px;
 }
-/* .product-count {
-  margin: 2px 0 0;
-} */
-
-/* Controls design */
-.product-controls {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 0px;
-}
-.product-controls a {
-  padding: 0 20px;
-  font-size: 17px;
-  color: #e6e6e6;
-}
-.product-controls a:hover {
-  color: #d3473c !important;
-}
-.product-controls-hidden a {
-  color: transparent;
-  font-size: 15px;
-  transition: all 0.15s ease;
-  border-color: transparent;
-}
 
 /* Hover effects */
-.product:hover {
+.card-episode:hover {
   background: #0606063b;
   cursor: pointer;
 }
-.product-upvote:hover,
-.product-upvote.product-upvote-upvoted {
+.card-episode-upvote:hover,
+.card-episode-upvote.card-episode-upvote-upvoted {
   color: #5898f1;
   cursor: pointer;
+  margin-right: 5px;
 }
-.product-upvote-upvoted .product-arrow {
+.card-episode-upvote-upvoted .card-episode-arrow {
   border-bottom-color: #5898f1;
 }
-.product:hover .product-upvote {
+.card-episode:hover .card-episode-upvote {
   transform: scale(1.2);
 }
-.product:hover .product-controls-hidden a {
+.card-episode:hover .card-episode-controls-hidden a {
   color: #e6e6e6;
 }
-.product-upvote:hover .product-arrow {
+.card-episode-upvote:hover .card-episodet-arrow {
   border-bottom: 9px solid #5898f1;
+}
+
+.episode-audio {
+  float: left;
+  margin-right: 20px;
+}
+
+.card-episode-description {
+  color: #c7c1c1;
+  padding: 20px;
 }

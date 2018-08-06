@@ -6,11 +6,6 @@ import SelectCountry from "./SelectCountry.jsx";
 import Loading from "./Loading.jsx";
 
 export default class Home extends React.Component {
-  state = {
-    textVisible: null
-  };
-  //podcasts = this.props.topPodcasts;
-
   componentDidMount() {
     if (_.isEmpty(this.props.topPodcasts)) {
       this.props.getTopPodcasts();
@@ -20,21 +15,9 @@ export default class Home extends React.Component {
     }
   }
 
-  showText = podcastId => {
-    this.setState({
-      textVisible: podcastId
-    });
-  };
-
-  hideText = () => {
-    this.setState({
-      textVisible: null
-    });
-  };
-
   render() {
     if (_.isEmpty(this.props.topPodcasts)) {
-      return <div className="container loader">Loading top podcasts...</div>;
+      return <Loading />;
     }
 
     return (
@@ -54,35 +37,39 @@ export default class Home extends React.Component {
           </div>
 
           <Row>
-            {this.props.topPodcasts.map(podcast => {
-              return (
-                <Col
-                  xs={{ size: "6", offset: "3" }}
-                  sm={{ size: "6", offset: "0" }}
-                  md={{ size: "4", offset: "0" }}
-                  lg={{ size: "3", offset: "0" }}
-                >
-                  <div
-                    className="card-home"
-                    style={{
-                      backgroundSize: "contain",
-                      backgroundRepeat: "no-repeat",
-                      backgroundImage: "url(" + podcast.artworkUrl100 + ")"
-                    }}
+            {this.props.topPodcasts &&
+              this.props.topPodcasts.length > 0 &&
+              this.props.topPodcasts.map(podcast => {
+                return (
+                  <Col
+                    xs={{ size: "6", offset: "3" }}
+                    sm={{ size: "6", offset: "0" }}
+                    md={{ size: "4", offset: "0" }}
+                    lg={{ size: "3", offset: "0" }}
                   >
-                    <Link
-                      to={`/${podcast.id}`}
-                      className="card-home-link"
-                      onClick={() => this.props.selectPodcast(podcast.id)}
-                      onMouseOver={() => this.showText(podcast.id)}
-                      onMouseLeave={() => this.hideText()}
+                    <div
+                      className="card-home"
+                      style={{
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundImage: "url(" + podcast.artworkUrl100 + ")"
+                      }}
                     >
-                      <h2 className="card-home-description">{podcast.name}</h2>
-                    </Link>
-                  </div>
-                </Col>
-              );
-            })}
+                      <Link
+                        to={`/${podcast.id}`}
+                        className="card-home-link"
+                        onClick={() => this.props.selectPodcast(podcast.id)}
+                      >
+                        <h2 className="card-home-description">
+                          {podcast.name}
+                        </h2>
+                      </Link>
+                    </div>
+                  </Col>
+                );
+              })}
+            {this.props.topPodcasts &&
+              this.props.topPodcasts.length === 0 && <Loading />}
           </Row>
         </Container>
       </div>
