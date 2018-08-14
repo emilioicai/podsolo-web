@@ -3,8 +3,8 @@ import _ from "lodash";
 import { Link } from "react-router-dom";
 import Loading from "./Loading.jsx";
 import { Row, Col, Button } from "reactstrap";
-import * as moment from "moment";
-import ReactAudioPlayer from "react-audio-player";
+import AudioPlayer from "./AudioPlayer.jsx";
+import { formatDurationString } from "../utilities";
 
 export default class User extends React.Component {
   state = {
@@ -48,6 +48,7 @@ export default class User extends React.Component {
       loadingMore: true
     });
   };
+
   handleEpisodePlayer = i => {
     if (this.state.showMoreId === i) {
       this.setState({ showMoreId: null });
@@ -58,6 +59,7 @@ export default class User extends React.Component {
 
   render() {
     const { episodes } = this.props;
+
     return (
       <div className=" episodes-body container-fluid">
         <Row>
@@ -84,28 +86,24 @@ export default class User extends React.Component {
                 {episodes.map((e, i) => {
                   return (
                     <div className="card-episode">
-                      <div onClick={() => this.handleEpisodePlayer(i)}>
-                        <div className="card-episode-upvote">
-                          <i className="fas fa-broadcast-tower" />
-                        </div>
-                        <div className="card-episode-body">
-                          <p className="duration-text">{e.itunes_duration}</p>
-                          <h3>{e.title}</h3>
-                          <p>{moment(e.created).format("MMMM Do YYYY")}</p>
-                        </div>
+                      {/* <div onClick={() => this.handleEpisodePlayer(i)}> */}
+                      <div className="episode-audio">
+                        <AudioPlayer
+                          streamUrl={e.enclosures[0].url}
+                          trackTitle={e.title}
+                          created={e.created}
+                          preloadType="none"
+                          itunes_duration={formatDurationString(
+                            e.itunes_duration
+                          )}
+                          onClickIcon={() => this.handleEpisodePlayer(i)}
+                        />
                       </div>
+                      {/* </div> */}
                       <div
                         className={`card-episode-description ${this.state
                           .showMoreId !== i && "d-none"}`}
                       >
-                        <div className="episode-audio">
-                          <ReactAudioPlayer
-                            src="my_audio_file.ogg"
-                            autoPlay
-                            controls
-                          />
-                        </div>
-
                         <p>{e.itunes_summary}</p>
                       </div>
                     </div>
