@@ -16,6 +16,14 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: "babel-loader"
+      },
+      {
+        test: /\.svg$/,
+        loader: "svg-url-loader",
+        options: {
+          stripdeclarations: true,
+          encoding: "base64"
+        }
       }
     ]
   }

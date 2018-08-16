@@ -14,6 +14,7 @@ export default class App extends React.Component {
     // sets the state if we do, otherwise initialize it to an empty state
     if (props.state) {
       this.state = props.state;
+      if (!this.state.selectedCountry) this.state.selectedCountry = "us";
     } else {
       this.state = {
         selectedPodcast: null,
