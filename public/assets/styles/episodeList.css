@@ -72,7 +72,7 @@ h6 {
   color: #e6e6e6;
 }
 .episode-controls i:hover {
-  color: #b16852 !important;
+  color: #048a81 !important;
 }
 .episode-controls-hidden a {
   color: transparent;
@@ -183,17 +183,8 @@ h6 {
 svg {
   max-height: 100%;
 }
-/* .button-outline:before {
-  content: "";
-  display: block;
-  position: absolute;
-  z-index: -1;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  left: -1px;
-  border: 1px solid transparent;
-  background-color: currentcolor;
-  border-radius: 3px;
-  opacity: 0;
-} */
+.btn-info {
+  color: #fff;
+  background-color: #048a81;
+  border-color: #048a81;
+}

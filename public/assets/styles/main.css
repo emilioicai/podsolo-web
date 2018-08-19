@@ -4,6 +4,8 @@
 @import "loading.css";
 @import "footer.css";
 @import "selectCountry";
+@import "react-flags-select.css";
+
 html {
   height: 100vh;
 }

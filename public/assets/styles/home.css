@@ -11,14 +11,24 @@
   background-attachment: fixed;
   background-position: center;
 }
-
+.container-home-rigth {
+  margin-top: 20px;
+}
 .body-home h1 {
   color: #f8f9fa;
   font-size: 80px;
   margin-bottom: 14px;
   padding-top: 40px;
   font-weight: 800;
+  margin-top: 20px;
 }
+.body-home h3 {
+  color: #f8f9fa;
+}
+/* .selector {
+  text-align: center;
+
+} */
 
 @media (max-width: 480px) {
   .body-home h1 {
@@ -33,6 +43,11 @@
 @media only screen and (min-width: 767px) and (max-width: 1025px) {
   .body-home h1 {
     font-size: 70px;
+  }
+}
+@media only screen and (max-width: 1258px) and (min-width: 992px) {
+  .body-home h1 {
+    font-size: 65px;
   }
 }
 
