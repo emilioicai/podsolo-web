@@ -3,11 +3,13 @@ import _ from "lodash";
 import { Link } from "react-router-dom";
 import Loading from "./Loading.jsx";
 import { Row, Col, Button } from "reactstrap";
-import * as moment from "moment";
+import AudioPlayer from "./AudioPlayer.jsx";
+import { formatDurationString } from "../utilities";
 
 export default class User extends React.Component {
   state = {
-    loadingMore: false
+    loadingMore: false,
+    showMoreId: null
   };
   limit = 12;
 
@@ -47,9 +49,17 @@ export default class User extends React.Component {
     });
   };
 
+  handleEpisodePlayer = i => {
+    if (this.state.showMoreId === i) {
+      this.setState({ showMoreId: null });
+    } else {
+      this.setState({ showMoreId: i });
+    }
+  };
+
   render() {
-    console.log(this.props.episodes);
     const { episodes } = this.props;
+
     return (
       <div className=" episodes-body container-fluid">
         <Row>
@@ -75,16 +85,26 @@ export default class User extends React.Component {
               <div>
                 {episodes.map((e, i) => {
                   return (
-                    <div className="product">
-                      <div className="product-upvote">
-                        <i className="fas fa-broadcast-tower" />
+                    <div className="card-episode">
+                      {/* <div onClick={() => this.handleEpisodePlayer(i)}> */}
+                      <div className="episode-audio">
+                        <AudioPlayer
+                          streamUrl={e.enclosures[0].url}
+                          trackTitle={e.title}
+                          created={e.created}
+                          preloadType="none"
+                          itunes_duration={formatDurationString(
+                            e.itunes_duration
+                          )}
+                          onClickIcon={() => this.handleEpisodePlayer(i)}
+                        />
                       </div>
-                      <div className="product-body">
-                        <h3>{e.title}</h3>
-                        <p>{moment(e.created).format("MMMM Do YYYY")}</p>
-                      </div>
-                      <div>
-                        <p className="duration-text">{e.itunes_duration}</p>
+                      {/* </div> */}
+                      <div
+                        className={`card-episode-description ${this.state
+                          .showMoreId !== i && "d-none"}`}
+                      >
+                        <p>{e.itunes_summary}</p>
                       </div>
                     </div>
                   );
