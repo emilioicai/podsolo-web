@@ -17,10 +17,13 @@
     "react-audio-player": "^0.10.0",
     "react-dom": "15.5.4",
     "react-flags-select": "^1.1.9",
+    "react-redux": "^5.0.7",
     "react-router": "4.1.1",
     "react-router-dom": "4.1.1",
     "react-soundplayer": "^1.0.4",
-    "reactstrap": "^6.3.0"
+    "reactstrap": "^6.3.0",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-core": "6.24.1",

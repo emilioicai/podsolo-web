@@ -1,11 +1,22 @@
 import React from "react";
 import { Switch, Route } from "react-router";
-import { Link } from "react-router-dom";
-import Home from "../components/Home.jsx";
-import EpisodeList from "../components/EpisodeList.jsx";
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+import Home from "./Home.jsx";
+import EpisodeList from "./EpisodeList.jsx";
+import rootReducer from "../reducers";
 import { getEpisodes, getTopPodcasts, getPodcast, getCountries } from "api";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+  )
+);
 
 export default class App extends React.Component {
   constructor(props) {
@@ -79,54 +90,41 @@ export default class App extends React.Component {
       });
   };
 
-  getCountries = () => {
-    getCountries()
-      .then(countries => {
-        this.setState({
-          countries
-        });
-        return null;
-      })
-      .catch(err => {
-        console.error("Error when getting contries:", err);
-      });
-  };
-
   render() {
     return (
-      <div>
-        <Header />
-        <Switch>
-          <Route
-            path="/:id"
-            render={props => (
-              <EpisodeList
-                {...props}
-                episodes={this.state.episodes}
-                getEpisodes={this.getEpisodes}
-                selectedPodcast={this.state.selectedPodcast}
-                selectPodcastById={this.selectPodcastById}
-              />
-            )}
-          />
-          <Route
-            path="/"
-            render={props => (
-              <Home
-                {...props}
-                topPodcasts={this.state.topPodcasts}
-                getTopPodcasts={this.getTopPodcasts}
-                selectPodcast={this.selectPodcast}
-                countries={this.state.countries}
-                getCountries={this.getCountries}
-                selectCountry={this.selectCountry}
-                selectedCountry={this.state.selectedCountry}
-              />
-            )}
-          />
-        </Switch>
-        <Footer />
-      </div>
+      <Provider store={store}>
+        <div>
+          <Header />
+          <Switch>
+            <Route
+              path="/:id"
+              render={props => (
+                <EpisodeList
+                  {...props}
+                  episodes={this.state.episodes}
+                  getEpisodes={this.getEpisodes}
+                  selectedPodcast={this.state.selectedPodcast}
+                  selectPodcastById={this.selectPodcastById}
+                />
+              )}
+            />
+            <Route
+              path="/"
+              render={props => (
+                <Home
+                  {...props}
+                  topPodcasts={this.state.topPodcasts}
+                  getTopPodcasts={this.getTopPodcasts}
+                  selectPodcast={this.selectPodcast}
+                  selectCountry={this.selectCountry}
+                  selectedCountry={this.state.selectedCountry}
+                />
+              )}
+            />
+          </Switch>
+          <Footer />
+        </div>
+      </Provider>
     );
   }
 }
