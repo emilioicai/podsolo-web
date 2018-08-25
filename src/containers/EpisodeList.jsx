@@ -5,8 +5,10 @@ import Loading from "../components/Loading.jsx";
 import { Row, Col, Button } from "reactstrap";
 import AudioPlayer from "../components/AudioPlayer.jsx";
 import { formatDurationString } from "../utilities";
+import { connect } from "react-redux";
+import { selectPodcast } from "../selectors";
 
-export default class User extends React.Component {
+class EpisodeLists extends React.Component {
   state = {
     loadingMore: false,
     showMoreId: null
@@ -59,7 +61,7 @@ export default class User extends React.Component {
 
   render() {
     const { episodes } = this.props;
-
+    console.log("--->", this.props.selectedPodcast);
     return (
       <div className=" episodes-body container-fluid">
         <Row>
@@ -128,3 +130,18 @@ export default class User extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {};
+
+const mapStateToProps = state => {
+  return {
+    selectedPodcast: selectPodcast(state)
+  };
+};
+
+const ConnectedEpisodeLists = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(EpisodeLists);
+
+export default ConnectedEpisodeLists;

@@ -9,8 +9,7 @@ export default class Footer extends React.Component {
           </a>
         </div>
         <div className="footer-copyright">
-          This website is made with <i className="fa fa-heart" /> by Emilio &
-          Eugenia
+          This website is made with <i className="fa fa-heart" /> in CPH and BCN
         </div>
       </div>
     );

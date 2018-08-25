@@ -29,18 +29,10 @@ export default class App extends React.Component {
     } else {
       this.state = {
         selectedPodcast: null,
-        topPodcasts: [],
-        episodes: [],
-        countries: [],
-        selectedCountry: "us"
+        episodes: []
       };
     }
   }
-
-  selectPodcast = podcastId => {
-    const podcastData = this.state.topPodcasts.find(x => x.id === podcastId);
-    this.setState({ selectedPodcast: podcastData });
-  };
 
   selectPodcastById = (podcastId, cb) => {
     getPodcast(podcastId)
@@ -51,10 +43,6 @@ export default class App extends React.Component {
         console.error("Error when getting podcast:", err);
         return cb(err, null);
       });
-  };
-
-  selectCountry = (country = "us") => {
-    this.setState({ selectedCountry: country, topPodcasts: [] });
   };
 
   getEpisodes = (podcastId, limit, clearEpisodes = true, cb) => {
@@ -77,19 +65,6 @@ export default class App extends React.Component {
       });
   };
 
-  getTopPodcasts = (country = "us") => {
-    getTopPodcasts(country)
-      .then(topPodcasts => {
-        this.setState({
-          topPodcasts
-        });
-        return null;
-      })
-      .catch(err => {
-        console.error("Error when getting top podcasts:", err);
-      });
-  };
-
   render() {
     return (
       <Provider store={store}>
@@ -103,7 +78,6 @@ export default class App extends React.Component {
                   {...props}
                   episodes={this.state.episodes}
                   getEpisodes={this.getEpisodes}
-                  selectedPodcast={this.state.selectedPodcast}
                   selectPodcastById={this.selectPodcastById}
                 />
               )}
@@ -111,14 +85,7 @@ export default class App extends React.Component {
             <Route
               path="/"
               render={props => (
-                <Home
-                  {...props}
-                  topPodcasts={this.state.topPodcasts}
-                  getTopPodcasts={this.getTopPodcasts}
-                  selectPodcast={this.selectPodcast}
-                  selectCountry={this.selectCountry}
-                  selectedCountry={this.state.selectedCountry}
-                />
+                <Home {...props} selectPodcast={this.selectPodcast} />
               )}
             />
           </Switch>

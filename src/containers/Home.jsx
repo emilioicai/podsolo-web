@@ -3,9 +3,18 @@ import { Link } from "react-router-dom";
 import _ from "lodash";
 import { Container, Row, Col } from "reactstrap";
 import { connect } from "react-redux";
-import { selectCountries } from "../selectors";
+import {
+  selectCountries,
+  selectSelectedCountry,
+  selectTopPodcasts
+} from "../selectors";
 import Loading from "../components/Loading.jsx";
-import { getCountries } from "../actions";
+import {
+  getCountries,
+  selectCountry,
+  getTopPodcasts,
+  selectPodcast
+} from "../actions";
 import ReactFlagsSelect from "react-flags-select";
 
 class Home extends React.Component {
@@ -33,7 +42,6 @@ class Home extends React.Component {
                 <h1>Top Podcasts</h1>
                 <h3>See the most listened podcasts in each country</h3>
                 {!this.props.countries && <Loading />}
-
                 {this.props.countries && (
                   <ReactFlagsSelect
                     defaultCountry={this.props.selectedCountry.toUpperCase()}
@@ -56,7 +64,7 @@ class Home extends React.Component {
               md={{ size: "12" }}
               lg={{ size: "8" }}
             >
-              {!_.isEmpty(this.props.topPodcasts) && (
+              {this.props.topPodcasts && (
                 <Container className={"container-home-rigth"}>
                   <Row>
                     {this.props.topPodcasts &&
@@ -82,7 +90,7 @@ class Home extends React.Component {
                                 to={`/${podcast.id}`}
                                 className="card-home-link"
                                 onClick={() =>
-                                  this.props.selectPodcast(podcast.id)
+                                  this.props.selectPodcast(podcast)
                                 }
                               >
                                 <h2 className="card-home-description">
@@ -98,7 +106,7 @@ class Home extends React.Component {
                   </Row>
                 </Container>
               )}
-              {_.isEmpty(this.props.topPodcasts) && <Loading />}
+              {!this.props.topPodcasts && <Loading />}
             </Col>
           </Row>
         </div>
@@ -111,13 +119,24 @@ const mapDispatchToProps = dispatch => {
   return {
     getCountries: () => {
       dispatch(getCountries());
+    },
+    selectCountry: country => {
+      dispatch(selectCountry(country));
+    },
+    getTopPodcasts: country => {
+      dispatch(getTopPodcasts(country));
+    },
+    selectPodcast: podcastData => {
+      dispatch(selectPodcast(podcastData));
     }
   };
 };
 
 const mapStateToProps = state => {
   return {
-    countries: selectCountries(state)
+    countries: selectCountries(state),
+    selectedCountry: selectSelectedCountry(state),
+    topPodcasts: selectTopPodcasts(state)
   };
 };
 
