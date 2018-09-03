@@ -1,0 +1,12 @@
+{
+    "status": "success",
+    "result": {
+        "apiKey": "AIzaSyDutMvP1tIrrqYcbukTyj35CF8A0NS8FFs",
+        "authDomain": "podcasts-web-production.firebaseapp.com",
+        "databaseURL": "https://podcasts-web-production.firebaseio.com",
+        "projectId": "podcasts-web-production",
+        "storageBucket": "podcasts-web-production.appspot.com",
+        "messagingSenderId": "300636441729"
+    }
+  }
+  

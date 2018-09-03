@@ -1,7 +1,8 @@
 require("es6-promise").polyfill();
 require("isomorphic-fetch");
 
-const API_URL = "us-central1-podcasts-205113.cloudfunctions.net";
+const API_URL = "us-central1-podcasts-205113.cloudfunctions.net"; //STAGING
+// const API_URL = "us-central1-podcasts-production.cloudfunctions.net"; // PRODUCTION
 
 const getEpisodes = (podcastId, limit = 999) => {
   return fetch(`//${API_URL}/episodes?podcastId=${podcastId}&limit=${limit}`)
