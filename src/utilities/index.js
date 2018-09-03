@@ -3,7 +3,7 @@ export const formatDurationString = s => {
     return s;
   }
   const minutes = Math.floor(parseInt(s) / 60);
-  const seconds = parseInt(s) % 60;
+  let seconds = parseInt(s) % 60;
   if (seconds < 10) {
     seconds = "0" + seconds;
   }

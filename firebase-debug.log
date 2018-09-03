@@ -1,0 +1,151 @@
+[debug] [2018-08-20T19:16:44.594Z] ----------------------------------------------------------------------
+[debug] [2018-08-20T19:16:44.600Z] Command:       /Users/eugenia/.nvm/versions/node/v6.11.5/bin/node /Users/eugenia/.nvm/versions/node/v6.11.5/bin/firebase serve --only functions,hosting
+[debug] [2018-08-20T19:16:44.601Z] CLI Version:   3.19.3
+[debug] [2018-08-20T19:16:44.601Z] Platform:      darwin
+[debug] [2018-08-20T19:16:44.601Z] Node Version:  v6.11.5
+[debug] [2018-08-20T19:16:44.602Z] Time:          Mon Aug 20 2018 21:16:44 GMT+0200 (CEST)
+[debug] [2018-08-20T19:16:44.602Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-08-20T19:16:44.625Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-08-20T19:16:44.625Z] > authorizing via signed-in user
+[debug] [2018-08-20T19:16:44.630Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/podcasts-web-staging  
+  
+ Mon Aug 20 2018 21:16:44 GMT+0200 (CEST)
+[debug] [2018-08-20T19:16:46.538Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T19:16:46.540Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/podcasts-web-staging/tokens  
+  
+ Mon Aug 20 2018 21:16:46 GMT+0200 (CEST)
+[debug] [2018-08-20T19:16:47.499Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T19:16:47.501Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/podcasts-web-staging  
+  
+ Mon Aug 20 2018 21:16:47 GMT+0200 (CEST)
+[debug] [2018-08-20T19:16:48.301Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/eugenia/code/eumar-8/podcasts-web'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-08-20T19:16:49.675Z] Fetching environment
+[debug] [2018-08-20T19:16:49.679Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/37465277961:getServerAppConfig  
+  
+ Mon Aug 20 2018 21:16:49 GMT+0200 (CEST)
+[debug] [2018-08-20T19:16:49.680Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/37465277961/clients/_:getWebAppConfig  
+  
+ Mon Aug 20 2018 21:16:49 GMT+0200 (CEST)
+[debug] [2018-08-20T19:16:50.261Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T19:16:50.287Z] <<< HTTP RESPONSE 200
+[debug] [2018-08-20T19:16:50.287Z] Starting @google-cloud/functions-emulator
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000
+
+[debug] [2018-08-20T19:16:52.897Z] Parsing function triggers
+[info] ✔  functions: app: http://localhost:5001/podcasts-web-staging/us-central1/app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /assets/popper.js.map to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
+[info] [hosting] Rewriting / to local function app
+[info] [hosting] Rewriting /assets/styles/selectCountry to local function app
+[info] [hosting] Rewriting /favicon.ico to local function app
