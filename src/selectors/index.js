@@ -13,3 +13,7 @@ export function selectTopPodcasts(state) {
 export function selectPodcast(state) {
   return state.selectedPodcast;
 }
+export function selectEpisodes(state) {
+  return state.episodes;
+}
+// selectos  son para tomar el trozo  del estado

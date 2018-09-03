@@ -6,7 +6,8 @@ import { Row, Col, Button } from "reactstrap";
 import AudioPlayer from "../components/AudioPlayer.jsx";
 import { formatDurationString } from "../utilities";
 import { connect } from "react-redux";
-import { selectPodcast } from "../selectors";
+import { selectPodcast, selectEpisodes } from "../selectors";
+import { selectPodcastById, getEpisodes } from "../actions";
 
 class EpisodeLists extends React.Component {
   state = {
@@ -61,7 +62,6 @@ class EpisodeLists extends React.Component {
 
   render() {
     const { episodes } = this.props;
-    console.log("--->", this.props.selectedPodcast);
     return (
       <div className=" episodes-body container-fluid">
         <Row>
@@ -130,12 +130,23 @@ class EpisodeLists extends React.Component {
     );
   }
 }
+//esto es para tomar las acciones  y usarlas como props
+const mapDispatchToProps = dispatch => {
+  return {
+    selectPodcastById: podcastId => {
+      dispatch(selectPodcastById(podcastId));
+    },
+    getEpisodes: (podcastId, limit) => {
+      dispatch(getEpisodes(podcastId, limit));
+    }
+  };
+};
 
-const mapDispatchToProps = dispatch => {};
-
+// este es para seleccionar partes del estado y usarlo como props
 const mapStateToProps = state => {
   return {
-    selectedPodcast: selectPodcast(state)
+    selectedPodcast: selectPodcast(state),
+    episodes: selectEpisodes(state)
   };
 };
 

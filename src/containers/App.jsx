@@ -28,42 +28,11 @@ export default class App extends React.Component {
       if (!this.state.selectedCountry) this.state.selectedCountry = "us";
     } else {
       this.state = {
-        selectedPodcast: null,
-        episodes: []
+        // selectedPodcast: null,
+        // episodes: []
       };
     }
   }
-
-  selectPodcastById = (podcastId, cb) => {
-    getPodcast(podcastId)
-      .then(podcast => {
-        return this.setState({ selectedPodcast: podcast });
-      })
-      .catch(err => {
-        console.error("Error when getting podcast:", err);
-        return cb(err, null);
-      });
-  };
-
-  getEpisodes = (podcastId, limit, clearEpisodes = true, cb) => {
-    if (clearEpisodes) {
-      this.setState({
-        episodes: []
-      });
-    }
-    getEpisodes(podcastId, limit)
-      .then(episodes => {
-        this.setState({
-          episodes
-        });
-        if (cb) return cb(null, episodes);
-        return null;
-      })
-      .catch(err => {
-        console.error("Error when getting episodes:", err);
-        return cb(err, null);
-      });
-  };
 
   render() {
     return (
@@ -71,23 +40,8 @@ export default class App extends React.Component {
         <div>
           <Header />
           <Switch>
-            <Route
-              path="/:id"
-              render={props => (
-                <EpisodeList
-                  {...props}
-                  episodes={this.state.episodes}
-                  getEpisodes={this.getEpisodes}
-                  selectPodcastById={this.selectPodcastById}
-                />
-              )}
-            />
-            <Route
-              path="/"
-              render={props => (
-                <Home {...props} selectPodcast={this.selectPodcast} />
-              )}
-            />
+            <Route path="/:id" render={props => <EpisodeList {...props} />} />
+            <Route path="/" render={props => <Home {...props} />} />
           </Switch>
           <Footer />
         </div>

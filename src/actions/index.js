@@ -1,6 +1,8 @@
 import {
   getCountries as getCountriesAPI,
-  getTopPodcasts as getTopPodcastsAPI
+  getTopPodcasts as getTopPodcastsAPI,
+  getPodcast as getPodcastAPI,
+  getEpisodes as getEpisodesAPI
 } from "api";
 
 export const getCountries = () => {
@@ -59,18 +61,40 @@ export const selectPodcast = podcastData => {
   };
 };
 
-// selectPodcast = podcastId => {
-//   const podcastData = this.state.topPodcasts.find(x => x.id === podcastId);
-//   this.setState({ selectedPodcast: podcastData });
-// };
+export const selectPodcastById = (podcastId, cb) => {
+  return dispatch => {
+    getPodcastAPI(podcastId)
+      .then(podcastData => {
+        return dispatch(selectPodcast(podcastData));
+      })
+      .catch(err => {
+        console.error("Error when getting podcasts:", err);
+        return dispatch({
+          type: "SELECT_PODCASTS_BY_ID_ERROR",
+          error: err
+        });
+      });
+  };
+};
 
-// selectPodcastById = (podcastId, cb) => {
-//   getPodcast(podcastId)
-//     .then(podcast => {
-//       return this.setState({ selectedPodcast: podcast });
-//     })
-//     .catch(err => {
-//       console.error("Error when getting podcast:", err);
-//       return cb(err, null);
-//     });
-// };
+export const getEpisodes = (podcastId, limit, cb) => {
+  return dispatch => {
+    dispatch({
+      type: "GET_EPISODES_LIST"
+    });
+    getEpisodesAPI(podcastId, limit, cb)
+      .then(episodes => {
+        return dispatch({
+          type: "GET_EPISODES_SUCCESS",
+          episodes: episodes
+        });
+      })
+      .catch(err => {
+        console.error("Error when getting episodeList:", err);
+        return dispatch({
+          type: "GET_EPISODES_ERROR",
+          error: err
+        });
+      });
+  };
+};
